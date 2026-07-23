@@ -184,6 +184,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09989a6766739c6479799f27570d7fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CountDownTimer
+--- !u!1 &511704489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 511704490}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &511704490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511704489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 21461679}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &579525246 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5338906465246281476, guid: 652e41ff5473142498127c4b85d6ecc6, type: 3}
@@ -846,7 +877,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6828321016518811220, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 511704490}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
 --- !u!1001 &1060284346851818606

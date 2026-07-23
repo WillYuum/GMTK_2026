@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 6294877752511911748}
   - component: {fileID: 3946726352411439941}
   m_Layer: 0
-  m_Name: MinigamePosition
+  m_Name: MiniGamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

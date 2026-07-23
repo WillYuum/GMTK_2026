@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 
-public class MiniGamePosition : MonoBehaviour
+public class MiniGamePanel : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _frontPanel;
     private Vector3 _initialLocalPosition;
@@ -21,7 +21,7 @@ public class MiniGamePosition : MonoBehaviour
         //if mouse hover
         var hits = Physics2D.Raycast(mousePosInWorld, Vector2.zero);
 
-        if (hits.collider != null && hits.collider.TryGetComponent(out MiniGamePosition miniGamePosition))
+        if (hits.collider != null && hits.collider.TryGetComponent(out MiniGamePanel miniGamePosition))
         {
             bool isClicked = Mouse.current.leftButton.wasPressedThisFrame;
             if (isClicked && miniGamePosition.IsRemoved == false)
