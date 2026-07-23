@@ -800,25 +800,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1080741530}
     m_Modifications:
-    - target: {fileID: 5074169887714446280, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.234375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5074169887714446280, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877072825035569216, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.1875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877072825035569216, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.53125
-      objectReference: {fileID: 0}
     - target: {fileID: 5927338128304459489, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
       propertyPath: m_Name
-      value: Rocket
+      value: RocketEntity
       objectReference: {fileID: 0}
     - target: {fileID: 6828321016518811220, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -859,14 +843,6 @@ PrefabInstance:
     - target: {fileID: 6828321016518811220, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092371911123985503, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.328125
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092371911123985503, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.046875
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

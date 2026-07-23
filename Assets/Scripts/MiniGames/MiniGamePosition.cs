@@ -21,7 +21,7 @@ public class MiniGamePosition : MonoBehaviour
         //if mouse hover
         var hits = Physics2D.Raycast(mousePosInWorld, Vector2.zero);
 
-        if (hits.collider != null && hits.collider.TryGetComponent<MiniGamePosition>(out MiniGamePosition miniGamePosition))
+        if (hits.collider != null && hits.collider.TryGetComponent(out MiniGamePosition miniGamePosition))
         {
             bool isClicked = Mouse.current.leftButton.wasPressedThisFrame;
             if (isClicked && miniGamePosition.IsRemoved == false)

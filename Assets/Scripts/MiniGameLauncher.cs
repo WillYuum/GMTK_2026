@@ -7,7 +7,7 @@ public class MiniGameLauncher : MonoBehaviour
 
     public void LaunchMiniGame()
     {
-        _currentMiniGame = new SwipeCardMiniGame();
+        // _currentMiniGame = new SwipeCardMiniGame();
         _currentMiniGame.StartGame();
     }
 
@@ -29,23 +29,3 @@ public class MiniGameLauncher : MonoBehaviour
         }
     }
 }
-
-
-public class SwipeCardMiniGame : MiniGame
-{
-    public override void StartGame()
-    {
-        // Start the swipe card mini-game
-    }
-
-    public override void EndGame()
-    {
-        // End the swipe card mini-game
-    }
-
-    public override void UpdateGame()
-    {
-        // Update the swipe card mini-game logic
-    }
-}
-

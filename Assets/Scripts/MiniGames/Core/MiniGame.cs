@@ -1,5 +1,7 @@
 
-public abstract class MiniGame : IMiniGame
+using UnityEngine;
+
+public abstract class MiniGame : MonoBehaviour, IMiniGame
 {
     public abstract void StartGame();
     public abstract void EndGame();
