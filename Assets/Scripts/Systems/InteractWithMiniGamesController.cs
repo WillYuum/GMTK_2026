@@ -4,6 +4,13 @@ using UnityEngine.InputSystem;
 public class InteractWithMiniGamesController : MonoBehaviour
 {
 
+    private MiniGameLauncher _miniGameLauncher;
+
+    void Awake()
+    {
+        _miniGameLauncher = FindAnyObjectByType<MiniGameLauncher>();
+    }
+
 
     void Update()
     {
@@ -18,6 +25,7 @@ public class InteractWithMiniGamesController : MonoBehaviour
             if (isClicked && miniGamePosition.IsRemoved == false)
             {
                 miniGamePosition.RemovePanel();
+                // _miniGameLauncher.InitializeMiniGame();
             }
         }
 

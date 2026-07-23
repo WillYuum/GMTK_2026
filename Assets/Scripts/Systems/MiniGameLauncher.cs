@@ -5,9 +5,13 @@ public class MiniGameLauncher : MonoBehaviour
 
     private MiniGame _currentMiniGame;
 
+    public void InitializeMiniGame(MiniGame miniGame)
+    {
+        _currentMiniGame = miniGame;
+    }
+
     public void LaunchMiniGame()
     {
-        // _currentMiniGame = new SwipeCardMiniGame();
         _currentMiniGame.StartGame();
     }
 
