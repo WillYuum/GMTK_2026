@@ -49,6 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09989a6766739c6479799f27570d7fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CountDownTimer
+  _countdownText: {fileID: 3203815260253723950}
+  _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _warningColor: {r: 1, g: 0, b: 0, a: 1}
+  redThreshold: 10
+  _pulseScale: 1.25
+  _pulseDuration: 0.2
+  _pulseEase: 27
 --- !u!1 &7920801316074883942
 GameObject:
   m_ObjectHideFlags: 0
