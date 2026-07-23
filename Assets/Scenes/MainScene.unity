@@ -800,6 +800,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CountDownTimerController
   _countDownTimerUI: {fileID: 396936091}
+  StartingCountDownValue: 90
+  CurrentCountDownValue: 90
 --- !u!1001 &759057166877825141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -908,22 +910,6 @@ PrefabInstance:
     - target: {fileID: 3511544348057142868, guid: 79116893e7927fa418f33c19498d4394, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4861208070846442301, guid: 79116893e7927fa418f33c19498d4394, type: 3}
-      propertyPath: orthographic size
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4861208070846442301, guid: 79116893e7927fa418f33c19498d4394, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.8039216
-      objectReference: {fileID: 0}
-    - target: {fileID: 4861208070846442301, guid: 79116893e7927fa418f33c19498d4394, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4861208070846442301, guid: 79116893e7927fa418f33c19498d4394, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.6313726
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
