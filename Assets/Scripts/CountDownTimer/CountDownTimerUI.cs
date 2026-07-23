@@ -10,11 +10,6 @@ public class CountDownTimerUI : MonoBehaviour
     [SerializeField] private Color _warningColor = Color.red;
     [SerializeField] private int redThreshold = 10;
 
-    [Header("Animation")]
-    [SerializeField] private float _pulseScale = 1.25f;
-    [SerializeField] private float _pulseDuration = 0.2f;
-    [SerializeField] private Ease _pulseEase = Ease.OutBack;
-
 
     private int _currentValue = -1;
     private Vector3 _originalScale;
@@ -42,12 +37,13 @@ public class CountDownTimerUI : MonoBehaviour
         seconds = Mathf.Max(0, seconds);
 
         if (_currentValue == seconds)
+        {
             return;
+        }
 
         _currentValue = seconds;
 
         UpdateDisplay();
-        PlayPulse();
     }
 
 
@@ -63,21 +59,5 @@ public class CountDownTimerUI : MonoBehaviour
 
         _countdownText.text = $"{minutes:00}:{seconds:00}";
         _countdownText.color = _currentValue <= redThreshold ? _warningColor : _normalColor;
-    }
-
-
-    private void PlayPulse()
-    {
-        _pulseTween?.Kill();
-
-        transform.localScale = _originalScale;
-
-        _pulseTween = transform
-            .DOPunchScale(
-                Vector3.one * (_pulseScale - 1f),
-                _pulseDuration,
-                vibrato: 1,
-                elasticity: 0f)
-            .SetEase(_pulseEase);
     }
 }
