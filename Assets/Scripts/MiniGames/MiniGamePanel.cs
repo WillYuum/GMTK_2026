@@ -26,29 +26,34 @@ public class MiniGamePanel : MonoBehaviour
     {
         IsRemoved = true;
 
-        Vector3 start = _frontPanel.transform.localPosition;
-        float xOffset = UnityEngine.Random.Range(-0.25f, 0.25f);
+        Sequence seq = DOTween.Sequence();
 
-        Vector3[] path =
+        float x = UnityEngine.Random.Range(-18f, 18f);
+
+        seq.Append(
+            _frontPanel.transform.DOLocalMove(
+                _initialLocalPosition + new Vector3(x * 0.2f, 48f, 0),
+                0.18f)
+            .SetEase(Ease.OutQuad)
+        );
+
+        seq.Append(
+            _frontPanel.transform.DOLocalMove(
+                _initialLocalPosition + new Vector3(x, -126f, 0),
+                0.55f)
+            .SetEase(Ease.InQuad)
+        );
+
+        seq.Join(
+            _frontPanel.DOFade(0, 0.3f)
+                .SetDelay(0.4f)
+        );
+
+        seq.OnComplete(() =>
         {
-            start,
-            // Up
-            start + new Vector3(xOffset * 0.4f, 0.55f, 0f), 
-            // Down + diagonal
-            start + new Vector3(xOffset, -1.2f, 0f)
-        };
-
-        _frontPanel.transform
-            .DOLocalPath(path, 0.8f, PathType.CatmullRom)
-            .SetEase(Ease.InQuart);
-
-        _frontPanel
-            .DOFade(0f, 0.45f)
-            .SetDelay(0.6f)
-            .OnComplete(() =>
-            {
-                callback?.Invoke();
-            });
+            callback?.Invoke();
+        });
+        seq.Play();
     }
 
 
