@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SwipeCardMiniGame : MiniGame
+public class ClickAwayMiniGame : MiniGame
 {
     [Header("References")]
     [SerializeField] private Collider2D _hitboxArea;
