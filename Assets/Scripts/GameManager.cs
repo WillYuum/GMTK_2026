@@ -2,21 +2,33 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    void Start()
+    [SerializeField] private bool _startWithStartScreen = false;
+
+    [SerializeField] private StartGameView _startGameView;
+
+    private void Start()
     {
-        StartGame();
+        FindAnyObjectByType<GameloopManager>().PrepareLoop();
+
+#if UNITY_EDITOR
+        bool startWithStartScreen = _startWithStartScreen;
+#else
+        // The release version will always be true.
+        bool startWithStartScreen = true;
+#endif
+
+        if (startWithStartScreen)
+        {
+            _startGameView.ToggleStartGameView(true);
+        }
+        else
+        {
+            StartGameLoop();
+        }
     }
 
- 
-    void Update()
+    public void StartGameLoop()
     {
-        
-    }
-
-
-
-    public void StartGame()
-    {
-        
+        FindAnyObjectByType<GameloopManager>().StartGame();
     }
 }

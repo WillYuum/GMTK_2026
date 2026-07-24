@@ -13,9 +13,15 @@ public class StartGameView : MonoBehaviour
         _startGameButton.onClick.AddListener(OnStartGameButtonClicked);
     }
 
+    public void ToggleStartGameView(bool isActive)
+    {
+        gameObject.SetActive(isActive);
+    }
+
 
     private void OnStartGameButtonClicked()
     {
+        ToggleStartGameView(false);
         FindAnyObjectByType<GameloopManager>().StartGame();
     }
 }

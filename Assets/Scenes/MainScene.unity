@@ -587,6 +587,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6835fa730371f544e902548b4479ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractWithMiniGamesController
+--- !u!114 &1218479744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5341875425990830710, guid: 652e41ff5473142498127c4b85d6ecc6, type: 3}
+  m_PrefabInstance: {fileID: 1060284346851818606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262abadf9e0971840a5d620f938e1e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartGameView
 --- !u!1 &1341783585
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc6e1934bd3218498009b1d9f7b42e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _startWithStartScreen: 0
+  _startGameView: {fileID: 1218479744}
 --- !u!1 &1476586456
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +770,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CountDownTimerController
   _countDownTimerUI: {fileID: 396936091}
-  StartingCountDownValue: 90
   CurrentCountDownValue: 90
 --- !u!1 &1909255543
 GameObject:
@@ -940,10 +952,6 @@ PrefabInstance:
     - target: {fileID: 8215070097451984569, guid: 652e41ff5473142498127c4b85d6ecc6, type: 3}
       propertyPath: m_Name
       value: StartGameView
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215070097451984569, guid: 652e41ff5473142498127c4b85d6ecc6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

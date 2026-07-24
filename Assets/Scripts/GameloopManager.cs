@@ -19,8 +19,13 @@ public class GameloopManager : MonoBehaviour
     void Awake()
     {
         _cameraController = FindAnyObjectByType<CameraController>();
-
     }
+
+    public void PrepareLoop()
+    {
+        _cameraController.ToggleCameraMovement(false);
+    }
+
 
     public void StartGame()
     {
