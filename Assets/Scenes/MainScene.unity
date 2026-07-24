@@ -384,9 +384,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 396936090}
   - {fileID: 579525246}
   - {fileID: 1139986936}
+  - {fileID: 396936090}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1124,14 +1124,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClickAwayMiniGame
       objectReference: {fileID: 0}
-    - target: {fileID: 4841328458464182357, guid: 90f40c8cc2eba0141930da4de4d21d6b, type: 3}
-      propertyPath: m_Size.x
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4841328458464182357, guid: 90f40c8cc2eba0141930da4de4d21d6b, type: 3}
-      propertyPath: m_Size.y
-      value: 126
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1282,7 +1274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197987606080801636, guid: 286f0b654a1ce8a468733a4a516334a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -54
+      value: -33
       objectReference: {fileID: 0}
     - target: {fileID: 197987606080801636, guid: 286f0b654a1ce8a468733a4a516334a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
