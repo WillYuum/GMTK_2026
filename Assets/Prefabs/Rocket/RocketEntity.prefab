@@ -249,17 +249,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6749677076248751823}
     m_Modifications:
+    - target: {fileID: 1815131626029767968, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2060399143417483274, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_Name
       value: Panel_MiniGame_ClickerGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6383699875116532103, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
+      propertyPath: m_Size.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383699875116532103, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
+      propertyPath: m_Size.y
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383699875116532103, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8152589197503455718, guid: 883273c7ed15b4b4ab47ff40536e2114, type: 3}
+    - target: {fileID: 6383699875116532103, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383699875116532103, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383699875116532103, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383699875116532103, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7811732519482743001, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.58681
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7811732519482743001, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.64123
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7811732519482743001, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_LocalPosition.z
