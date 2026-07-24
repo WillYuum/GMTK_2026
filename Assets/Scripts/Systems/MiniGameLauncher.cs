@@ -24,22 +24,22 @@ public class MiniGameLauncher : MonoBehaviour
         _currentMiniGame.OnGameFinished += (isSuccess) =>
         {
             Debug.Log($"MiniGame finished. Success: {isSuccess}");
-            EndMiniGame();
+            EndMiniGame(isSuccess);
         };
     }
 
 
     void Update()
     {
-        if (_currentMiniGame != null)
+        if (_currentMiniGame != null && _currentMiniGame.IsGameActive)
         {
             _currentMiniGame.OnUpdate();
         }
     }
 
-    public void EndMiniGame()
+    public void EndMiniGame(bool isSuccess)
     {
-        _currentMiniGamePanel.PlaceBackPanel();
+        _currentMiniGamePanel.PlaceBackPanel(isSuccess);
         FindAnyObjectByType<CameraController>().ToggleCameraMovement(true);
     }
 }

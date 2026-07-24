@@ -3,11 +3,19 @@ using UnityEngine.InputSystem;
 using DG.Tweening;
 using System;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class MiniGamePanel : MonoBehaviour
 {
     [SerializeField] public GameObject MiniGameHolder;
     [SerializeField] private SpriteRenderer _frontPanel;
+    [SerializeField] private SpriteRenderer _taskCompletedCheckmark;
+
+    private BoxCollider2D _boxCollider;
     private Vector3 _initialLocalPosition;
+
+
+    [SerializeField] private Transform _screwsHolder;
+
 
     public bool IsRemoved { get; private set; } = false;
     public MiniGame MiniGameInstance => MiniGameHolder.GetComponentInChildren<MiniGame>();
@@ -15,17 +23,21 @@ public class MiniGamePanel : MonoBehaviour
     void Awake()
     {
         _initialLocalPosition = _frontPanel.transform.localPosition;
+        _boxCollider = GetComponent<BoxCollider2D>();
     }
 
     void Start()
     {
         MiniGameHolder.SetActive(false);
         _frontPanel.transform.parent.gameObject.SetActive(true); //incase it was disabled in the scene editor
+
+        _taskCompletedCheckmark.gameObject.SetActive(false);
     }
 
     public void RemovePanel(Action callback)
     {
         IsRemoved = true;
+        _boxCollider.enabled = false;
 
         Sequence seq = DOTween.Sequence();
 
@@ -58,7 +70,7 @@ public class MiniGamePanel : MonoBehaviour
     }
 
 
-    public void PlaceBackPanel()
+    public void PlaceBackPanel(bool isSuccess = false)
     {
         IsRemoved = false;
 
@@ -68,7 +80,44 @@ public class MiniGamePanel : MonoBehaviour
         _frontPanel.DOFade(1f, 0.2f);
         _frontPanel.transform
             .DOLocalMove(_initialLocalPosition, 0.25f)
-            .SetEase(Ease.OutBack);
+            .SetEase(Ease.OutBack)
+            .OnComplete(() =>
+            {
+                if (isSuccess)
+                {
+                    _taskCompletedCheckmark.gameObject.SetActive(true);
+
+                    _taskCompletedCheckmark.color = new Color(1, 1, 1, 0);
+                    _taskCompletedCheckmark.transform.localScale = new Vector3(1.5f, 0.5f, 1f);
+                    _taskCompletedCheckmark.transform.localRotation = Quaternion.Euler(0, 0, -8f);
+
+                    Sequence seq = DOTween.Sequence();
+
+                    seq.Append(_taskCompletedCheckmark.DOFade(1f, 0.04f));
+
+                    seq.Join(
+                        _taskCompletedCheckmark.transform
+                            .DOScale(Vector3.one, 0.15f)
+                            .SetEase(Ease.OutQuad)
+                    );
+
+                    seq.Join(
+                        _taskCompletedCheckmark.transform
+                            .DOLocalRotate(Vector3.zero, 0.15f)
+                            .SetEase(Ease.OutQuad)
+                    );
+
+                    seq.Append(
+                        _taskCompletedCheckmark.transform.DOPunchPosition(Vector3.down * 1.5f, 0.08f, 1, 0)
+                    );
+                }
+            });
+    }
+
+
+    public bool CheckIsLocked()
+    {
+        return _screwsHolder.childCount > 0;
     }
 
 }

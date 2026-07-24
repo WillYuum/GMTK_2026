@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 64, y: 126}
   m_EdgeRadius: 0
 --- !u!1001 &6552451700938704113
 PrefabInstance:
@@ -88,7 +88,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5311028089680243953, guid: 8d97770ddb80e7c468f6102d50418e53, type: 3}
       propertyPath: m_Name
-      value: SlideCardMiniGame
+      value: ClickAwayMiniGame
       objectReference: {fileID: 0}
     - target: {fileID: 6832001660480428769, guid: 8d97770ddb80e7c468f6102d50418e53, type: 3}
       propertyPath: m_LocalPosition.x
@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6832001660480428769, guid: 8d97770ddb80e7c468f6102d50418e53, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6832001660480428769, guid: 8d97770ddb80e7c468f6102d50418e53, type: 3}
       propertyPath: m_LocalRotation.w
@@ -164,4 +164,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwipeCardMiniGame
   _hitboxArea: {fileID: 4841328458464182357}
-  _targetCount: 0
