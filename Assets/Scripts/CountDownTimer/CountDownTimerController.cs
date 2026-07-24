@@ -4,7 +4,7 @@ public class CountDownTimerController : MonoBehaviour
 {
     [SerializeField] private CountDownTimerUI _countDownTimerUI;
 
-    public int CurrentCountDownValue = 90;
+    public int CurrentCountDownValue { get; private set; } = 90;
 
 
     public void SetTime(int newTime)
