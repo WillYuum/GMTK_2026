@@ -4,30 +4,18 @@ public class CountDownTimerController : MonoBehaviour
 {
     [SerializeField] private CountDownTimerUI _countDownTimerUI;
 
-    public int StartingCountDownValue = 90;
     public int CurrentCountDownValue = 90;
-    private float _timer = 1f;
 
 
-    void Start()
+    public void SetTime(int newTime)
     {
-        _countDownTimerUI.SetValue(StartingCountDownValue);
-        CurrentCountDownValue = StartingCountDownValue;
+        CurrentCountDownValue = newTime;
+        _countDownTimerUI.SetValue(CurrentCountDownValue);
     }
 
-    void Update()
+    public void UpdateTime(int newTime)
     {
-        HandleCountDown();
-    }
-
-    private void HandleCountDown()
-    {
-        _timer -= Time.deltaTime;
-        if (_timer <= 0f)
-        {
-            _timer = 1f;
-            CurrentCountDownValue--;
-            _countDownTimerUI.SetValue(CurrentCountDownValue);
-        }
+        CurrentCountDownValue = newTime;
+        _countDownTimerUI.SetValue(CurrentCountDownValue);
     }
 }
