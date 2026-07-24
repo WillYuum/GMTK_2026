@@ -13,7 +13,7 @@ public class GameloopManager : MonoBehaviour
     private CameraController _cameraController;
 
 
-    [SerializeField] private CountDownTimerController _countDownTimerUI;
+    [SerializeField] private CountDownTimerController _countDownTimerController;
 
 
     void Awake()
@@ -30,7 +30,7 @@ public class GameloopManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log($"[GameloopManager] StartGame");
-        _countDownTimerUI.SetTime(StartingCountDownValue);
+        _countDownTimerController.SetTime(StartingCountDownValue);
         CurrentCountDownValue = StartingCountDownValue;
 
         _cameraController.ToggleCameraMovement(true);
@@ -43,7 +43,7 @@ public class GameloopManager : MonoBehaviour
         {
             _timer = 1f;
             CurrentCountDownValue--;
-            _countDownTimerUI.UpdateTime(CurrentCountDownValue);
+            _countDownTimerController.UpdateTime(CurrentCountDownValue);
         }
 
 
