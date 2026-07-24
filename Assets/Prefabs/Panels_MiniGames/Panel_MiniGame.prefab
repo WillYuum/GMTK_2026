@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 413629480094004430}
   - component: {fileID: 2294929663584838936}
   m_Layer: 0
-  m_Name: MiniGamePanelCore
+  m_Name: Panel_MiniGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
