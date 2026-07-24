@@ -127,7 +127,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: rocket-body
     originalName: 
-    pivot: {x: 0.5, y: -0.20588236}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 10, y: 10, z: 10, w: 10}
     customData: 

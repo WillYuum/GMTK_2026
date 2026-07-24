@@ -175,6 +175,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6882176759057887256, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_Size.x
+      value: 133.3204
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882176759057887256, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_Size.y
+      value: 124.208496
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882176759057887256, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8152589197503455718, guid: 883273c7ed15b4b4ab47ff40536e2114, type: 3}
+    - target: {fileID: 6882176759057887256, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243941687264856468, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243941687264856468, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243941687264856468, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243941687264856468, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834229872921996262, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834229872921996262, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834229872921996262, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834229872921996262, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -125.52713
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834229872921996262, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -176.3628
+      objectReference: {fileID: 0}
     - target: {fileID: 8657844133663659207, guid: 29c900752aaa92d4592a0b105070434f, type: 3}
       propertyPath: m_Name
       value: RocketVisual
