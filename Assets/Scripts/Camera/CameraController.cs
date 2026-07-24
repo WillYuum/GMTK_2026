@@ -98,4 +98,9 @@ public class CameraController : MonoBehaviour
         return !isOutside && isFocused;
     }
 
+
+    public void ToggleCameraMovement(bool isEnabled)
+    {
+        this.enabled = isEnabled;
+    }
 }

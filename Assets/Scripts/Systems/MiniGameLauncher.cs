@@ -4,15 +4,28 @@ public class MiniGameLauncher : MonoBehaviour
 {
 
     private MiniGame _currentMiniGame;
+    private MiniGamePanel _currentMiniGamePanel;
 
-    public void InitializeMiniGame(MiniGame miniGame)
+    public void Initialize(MiniGame miniGame, MiniGamePanel miniGamePanel)
     {
+        FindAnyObjectByType<CameraController>().ToggleCameraMovement(false);
+
+        _currentMiniGamePanel = miniGamePanel;
+        _currentMiniGamePanel.MiniGameHolder.SetActive(true);
         _currentMiniGame = miniGame;
+        _currentMiniGame.gameObject.SetActive(true);
     }
+
 
     public void LaunchMiniGame()
     {
-        _currentMiniGame.StartGame();
+        _currentMiniGame.IsGameActive = true;
+        _currentMiniGame.OnStart();
+        _currentMiniGame.OnGameFinished += (isSuccess) =>
+        {
+            Debug.Log($"MiniGame finished. Success: {isSuccess}");
+            EndMiniGame();
+        };
     }
 
 
@@ -20,16 +33,13 @@ public class MiniGameLauncher : MonoBehaviour
     {
         if (_currentMiniGame != null)
         {
-            _currentMiniGame.UpdateGame();
+            _currentMiniGame.OnUpdate();
         }
     }
 
     public void EndMiniGame()
     {
-        if (_currentMiniGame != null)
-        {
-            _currentMiniGame.EndGame();
-            _currentMiniGame = null;
-        }
+        _currentMiniGamePanel.PlaceBackPanel();
+        FindAnyObjectByType<CameraController>().ToggleCameraMovement(true);
     }
 }

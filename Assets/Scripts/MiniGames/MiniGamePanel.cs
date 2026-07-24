@@ -1,25 +1,33 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using System;
 
 public class MiniGamePanel : MonoBehaviour
 {
+    [SerializeField] public GameObject MiniGameHolder;
     [SerializeField] private SpriteRenderer _frontPanel;
     private Vector3 _initialLocalPosition;
 
     public bool IsRemoved { get; private set; } = false;
+    public MiniGame MiniGameInstance => MiniGameHolder.GetComponentInChildren<MiniGame>();
 
     void Awake()
     {
         _initialLocalPosition = _frontPanel.transform.localPosition;
     }
 
-    public void RemovePanel()
+    void Start()
+    {
+        MiniGameHolder.SetActive(false);
+    }
+
+    public void RemovePanel(Action callback)
     {
         IsRemoved = true;
 
         Vector3 start = _frontPanel.transform.localPosition;
-        float xOffset = Random.Range(-0.25f, 0.25f);
+        float xOffset = UnityEngine.Random.Range(-0.25f, 0.25f);
 
         Vector3[] path =
         {
@@ -36,7 +44,11 @@ public class MiniGamePanel : MonoBehaviour
 
         _frontPanel
             .DOFade(0f, 0.45f)
-            .SetDelay(0.6f);
+            .SetDelay(0.6f)
+            .OnComplete(() =>
+            {
+                callback?.Invoke();
+            });
     }
 
 

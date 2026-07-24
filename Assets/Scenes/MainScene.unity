@@ -398,17 +398,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &843116370 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2042353556938015647, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-  m_PrefabInstance: {fileID: 759057166877825141}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726d8afeba2b9874d811322382ea6114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MiniGamePosition
 --- !u!1 &860284752
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,17 +587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6835fa730371f544e902548b4479ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractWithMiniGamesController
---- !u!114 &1301223958 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 843151169187966999, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-  m_PrefabInstance: {fileID: 759057166877825141}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726d8afeba2b9874d811322382ea6114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MiniGamePosition
 --- !u!1 &1341783585
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,17 +759,6 @@ MonoBehaviour:
   _countDownTimerUI: {fileID: 396936091}
   StartingCountDownValue: 90
   CurrentCountDownValue: 90
---- !u!114 &1824604483 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4058268490807585800, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
-  m_PrefabInstance: {fileID: 759057166877825141}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726d8afeba2b9874d811322382ea6114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MiniGamePosition
 --- !u!1 &1909255543
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,63 +790,8 @@ Transform:
   m_Children:
   - {fileID: 1476586457}
   - {fileID: 209484120}
-  - {fileID: 2103330846}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2103330845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2103330846}
-  - component: {fileID: 2103330847}
-  m_Layer: 0
-  m_Name: MiniGameAssigner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2103330846
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103330845}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1909255544}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2103330847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103330845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aa096c2c2777b24ebd9a9a538236ec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MiniGameAssigner
-  _entries:
-  - Panel: {fileID: 1301223958}
-    MiniGames:
-    - {fileID: 1394554524820580352, guid: 90f40c8cc2eba0141930da4de4d21d6b, type: 3}
-  - Panel: {fileID: 1824604483}
-    MiniGames:
-    - {fileID: 1394554524820580352, guid: 90f40c8cc2eba0141930da4de4d21d6b, type: 3}
-  - Panel: {fileID: 843116370}
-    MiniGames:
-    - {fileID: 1394554524820580352, guid: 90f40c8cc2eba0141930da4de4d21d6b, type: 3}
 --- !u!1001 &759057166877825141
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,15 +19,19 @@ public class InteractWithMiniGamesController : MonoBehaviour
         //if mouse hover
         var hits = Physics2D.Raycast(mousePosInWorld, Vector2.zero);
 
-        if (hits.collider != null && hits.collider.TryGetComponent(out MiniGamePanel miniGamePosition))
+        if (hits.collider != null && hits.collider.TryGetComponent(out MiniGamePanel miniGamePanel))
         {
             bool isClicked = Mouse.current.leftButton.wasPressedThisFrame;
-            if (isClicked && miniGamePosition.IsRemoved == false)
+            if (isClicked && miniGamePanel.IsRemoved == false)
             {
-                miniGamePosition.RemovePanel();
-                // _miniGameLauncher.InitializeMiniGame();
+                MiniGame miniGame = miniGamePanel.MiniGameInstance;
+
+                _miniGameLauncher.Initialize(miniGame, miniGamePanel);
+                miniGamePanel.RemovePanel(() =>
+                {
+                    _miniGameLauncher.LaunchMiniGame();
+                });
             }
         }
-
     }
 }
