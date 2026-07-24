@@ -20,6 +20,7 @@ public class MiniGamePanel : MonoBehaviour
     void Start()
     {
         MiniGameHolder.SetActive(false);
+        _frontPanel.transform.parent.gameObject.SetActive(true); //incase it was disabled in the scene editor
     }
 
     public void RemovePanel(Action callback)

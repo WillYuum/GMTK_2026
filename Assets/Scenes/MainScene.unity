@@ -646,7 +646,7 @@ MonoBehaviour:
   _acceleration: 10
   _cameraBounds:
     m_Center: {x: 0, y: 2.5, z: 0}
-    m_Extent: {x: 4.5, y: 10, z: 0}
+    m_Extent: {x: 168, y: 350, z: 0}
   MovementZone: 100
 --- !u!1 &1407048918
 GameObject:
@@ -857,6 +857,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1080741530}
     m_Modifications:
+    - target: {fileID: 5281969312594655763, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5883872998975325454, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
+      propertyPath: m_Size.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5883872998975325454, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
+      propertyPath: m_Size.y
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 5927338128304459489, guid: b99562f27a2a430478fc9ecdc286502a, type: 3}
       propertyPath: m_Name
       value: RocketEntity
