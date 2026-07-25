@@ -34,11 +34,13 @@ public abstract class MiniGame : MonoBehaviour, IMiniGame
     public abstract void OnStart();
     public abstract void OnEnd();
     public abstract void OnUpdate();
+    public abstract void OnInitialize();
 }
 
 
 public interface IMiniGame
 {
+    void OnInitialize();
     void OnStart();
     void OnEnd();
     void OnUpdate();

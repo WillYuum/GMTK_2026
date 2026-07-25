@@ -68,7 +68,7 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
         float x = UnityEngine.Random.Range(-18f, 18f);
 
 
-        _taskCompletedCheckmark.DOFade(0, 0.2f);
+        _taskWarningIcon.DOFade(0, 0.2f);
 
         seq.Append(
             _frontPanel.transform.DOLocalMove(

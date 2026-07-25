@@ -18,7 +18,7 @@ public class ClickAwayMiniGame : MiniGame
     [SerializeField] private Sprite _availableSprite;
     [SerializeField] private Sprite _pressedSprite;
 
-    public override void OnStart()
+    public override void OnInitialize()
     {
         _buttons = _buttonHolder.GetComponentsInChildren<ClickerButton>(true);
 
@@ -43,6 +43,10 @@ public class ClickAwayMiniGame : MiniGame
             _buttons[indices[i]]
                 .SetState(ButtonState.Available, GetSprite(ButtonState.Available));
         }
+    }
+
+    public override void OnStart()
+    {
     }
 
     public override void OnUpdate()

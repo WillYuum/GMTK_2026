@@ -14,6 +14,8 @@ public class MiniGameLauncher : MonoBehaviour
         _currentMiniGamePanel.MiniGameHolder.SetActive(true);
         _currentMiniGame = miniGame;
         _currentMiniGame.gameObject.SetActive(true);
+
+        miniGame.OnInitialize();
     }
 
 
