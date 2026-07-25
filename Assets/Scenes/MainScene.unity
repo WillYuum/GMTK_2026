@@ -5647,6 +5647,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &1218291075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218291076}
+  - component: {fileID: 1218291077}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1218291076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218291075}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.42317, y: 36.66669, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1218291077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218291075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae221f197cef42b44a242c3ebebf4174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  _sfxConfigs:
+  - Name: SFX_1
+    Clip: {fileID: 8300000, guid: 2b31154cd2f802545bd56083c82cc3c4, type: 3}
+    Volume: 0.5
+    Loop: 0
+    PitchProps:
+      RandPitch: 0
+      Min: 0
+      Max: 0
+  _bgmConfigs: []
 --- !u!114 &1218479744 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5341875425990830710, guid: 652e41ff5473142498127c4b85d6ecc6, type: 3}
@@ -6702,6 +6756,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1922014042157696284}
   - {fileID: 619394802}
+  - {fileID: 1218291076}
   - {fileID: 1407048919}
   - {fileID: 1872937628}
   - {fileID: 1909255544}

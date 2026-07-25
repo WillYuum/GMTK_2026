@@ -15,6 +15,9 @@ public class Screw : MonoBehaviour, IHoverInteractable
         if (_rotationCount >= MaxRotations)
             return true;
 
+
+        // AudioManager.Instance.PlaySFX("SFX_1");
+
         _rotationCount++;
 
         _screwSpriteRenderer.transform

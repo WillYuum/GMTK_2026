@@ -3,7 +3,7 @@ using UnityEngine;
 using Utils.GenericSingletons;
 using AudioClasses;
 
-public class AudioManager : MonoBehaviourSingleton<AudioManager>
+public class AudioManager : MonoBehaviourSingletonPersistent<AudioManager>
 {
     [SerializeField] private List<AudioConfig> _sfxConfigs;
     [SerializeField] private List<AudioConfig> _bgmConfigs;

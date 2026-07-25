@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         {
             StartGameLoop();
         }
+
+        AudioManager.Instance.Load();
     }
 
     public void StartGameLoop()
