@@ -17,6 +17,8 @@ public class InteractWithMiniGamesController : MonoBehaviour
     {
         _miniGameLauncher = FindAnyObjectByType<MiniGameLauncher>();
         _mainCamera = Camera.main;
+
+        _holdTimer = _rotationInterval;
     }
 
 
@@ -53,7 +55,7 @@ public class InteractWithMiniGamesController : MonoBehaviour
         if (_currentScrew != screw)
         {
             _currentScrew = screw;
-            _holdTimer = 0f;
+            _holdTimer = 0.5f;
         }
 
         _holdTimer += Time.deltaTime;

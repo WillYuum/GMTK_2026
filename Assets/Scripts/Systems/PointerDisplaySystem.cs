@@ -8,6 +8,7 @@ public enum PointerDisplayType
     ToolHand,
     ToolBroom,
     ToolScrewdriver,
+    ToolWrench,
 }
 
 public interface IHoverInteractable
