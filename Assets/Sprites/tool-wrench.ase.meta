@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d0bd795a89a84eeab3bfd7a5a5f9415
+guid: faf87a73eb2154374b89d4a5cab71506
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -125,9 +125,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: minigame-compartment
+  - name: tool-wrench
     originalName: 
-    pivot: {x: 0.5, y: -0.28125}
+    pivot: {x: 0.5, y: -0.020833332}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -135,9 +135,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 64
-      height: 64
-    spriteID: 82e4a9be4e2b348dabdcbd2022b48eb5
+      width: 24
+      height: 48
+    spriteID: bbd7ae3f90a9349269cb8b86d9592099
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,31 +145,31 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 3, y: 3}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3186944070
+      value0: 1027768922
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: minigame-compartment
+    name: tool-wrench
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: minigame-compartment
+    - name: tool-wrench
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 18
-        y: 18
-        width: 64
-        height: 64
-      spriteId: 82e4a9be4e2b348dabdcbd2022b48eb5
+        x: 0
+        y: 0
+        width: 26
+        height: 50
+      spriteId: bbd7ae3f90a9349269cb8b86d9592099
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -178,5 +178,5 @@ ScriptedImporter:
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
-  previousTextureSize: {x: 128, y: 128}
-  canvasSize: {x: 100, y: 100}
+  previousTextureSize: {x: 32, y: 64}
+  canvasSize: {x: 26, y: 50}
