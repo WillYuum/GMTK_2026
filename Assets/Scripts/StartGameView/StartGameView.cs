@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class StartGameView : MonoBehaviour
@@ -10,7 +11,16 @@ public class StartGameView : MonoBehaviour
 
     void Start()
     {
-        _startGameButton.onClick.AddListener(OnStartGameButtonClicked);
+        _startGameButton.onClick.AddListener(ClickAnywhereToStart);
+    }
+
+
+    void Update()
+    {
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            ClickAnywhereToStart();
+        }
     }
 
     public void ToggleStartGameView(bool isActive)
@@ -19,7 +29,7 @@ public class StartGameView : MonoBehaviour
     }
 
 
-    private void OnStartGameButtonClicked()
+    private void ClickAnywhereToStart()
     {
         ToggleStartGameView(false);
         FindAnyObjectByType<GameloopManager>().StartGame();

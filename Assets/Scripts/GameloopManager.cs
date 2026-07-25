@@ -24,12 +24,14 @@ public class GameloopManager : MonoBehaviour
 
     public void PrepareLoop()
     {
+        enabled = false;
         _cameraController.ToggleCameraMovement(false);
     }
 
 
     public void StartGame()
     {
+        enabled = true;
         Debug.Log($"[GameloopManager] StartGame");
         _countDownTimerController.SetTime(StartingCountDownValue);
         CurrentCountDownValue = StartingCountDownValue;
