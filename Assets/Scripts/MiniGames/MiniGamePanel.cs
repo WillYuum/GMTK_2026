@@ -1,14 +1,15 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using DG.Tweening;
 using System;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class MiniGamePanel : MonoBehaviour
+public class MiniGamePanel : MonoBehaviour, IHoverInteractable
 {
     [SerializeField] public GameObject MiniGameHolder;
     [SerializeField] private SpriteRenderer _frontPanel;
     [SerializeField] private SpriteRenderer _taskCompletedCheckmark;
+
+    public PointerDisplayType PointerType => PointerDisplayType.ToolPointer;
 
     private BoxCollider2D _boxCollider;
     private Vector3 _initialLocalPosition;
@@ -120,4 +121,13 @@ public class MiniGamePanel : MonoBehaviour
         return _screwsHolder.childCount > 0;
     }
 
+    public void OnHoverEnter()
+    {
+
+    }
+
+    public void OnHoverExit()
+    {
+
+    }
 }

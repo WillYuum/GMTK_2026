@@ -8,7 +8,6 @@ public class InteractWithMiniGamesController : MonoBehaviour
 
     private Screw _currentScrew;
     private float _holdTimer;
-    private int _rotationCount;
 
     private MiniGameLauncher _miniGameLauncher;
 
@@ -35,12 +34,10 @@ public class InteractWithMiniGamesController : MonoBehaviour
 
         if (hit.collider.TryGetComponent(out Screw foundScrew))
         {
-            Debug.Log("Screw hit");
             HandleScrew(foundScrew);
         }
         else if (hit.collider.TryGetComponent(out MiniGamePanel foundPanel))
         {
-            Debug.Log("MiniGamePanel hit");
             HandlePanel(foundPanel);
         }
     }
@@ -98,6 +95,5 @@ public class InteractWithMiniGamesController : MonoBehaviour
     {
         _currentScrew = null;
         _holdTimer = 0f;
-        _rotationCount = 0;
     }
 }

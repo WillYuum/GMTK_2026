@@ -1,12 +1,14 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class Screw : MonoBehaviour
+public class Screw : MonoBehaviour, IHoverInteractable
 {
     [SerializeField] private SpriteRenderer _screwSpriteRenderer;
 
     private int _rotationCount;
     private const int MaxRotations = 5;
+
+    public PointerDisplayType PointerType => PointerDisplayType.ToolScrewdriver;
 
     public bool Rotate()
     {
@@ -36,5 +38,15 @@ public class Screw : MonoBehaviour
         _screwSpriteRenderer
             .DOFade(0, 0.3f)
             .OnComplete(() => Destroy(gameObject));
+    }
+
+    public void OnHoverEnter()
+    {
+
+    }
+
+    public void OnHoverExit()
+    {
+
     }
 }
