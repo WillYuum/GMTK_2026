@@ -5864,11 +5864,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointerDisplaySystem
   _cursorRenderer: {fileID: 1925204888}
-  _defaultPointer: {fileID: -478705294955925439, guid: 0099ebc17ecd0429e818d96c7757b004, type: 3}
-  _toolPointer: {fileID: 8043751203756483971, guid: 418b007b8a6ce4f6c9bd59a67d4fe8a5, type: 3}
-  _toolHand: {fileID: -478705294955925439, guid: 0099ebc17ecd0429e818d96c7757b004, type: 3}
-  _toolBroom: {fileID: -3412082333349552788, guid: ed34f1d0c2939443ebfe43bce016a933, type: 3}
-  _toolScrewdriver: {fileID: 6739228714503856718, guid: 3b5fafc19e00d470887fc6dac85248d0, type: 3}
+  _pointers:
+  - Type: 0
+    Sprite: {fileID: -478705294955925439, guid: 0099ebc17ecd0429e818d96c7757b004, type: 3}
+    FineTuneOffset: {x: 12, y: 12}
+  - Type: 1
+    Sprite: {fileID: 8043751203756483971, guid: 418b007b8a6ce4f6c9bd59a67d4fe8a5, type: 3}
+    FineTuneOffset: {x: 12, y: 12}
+  - Type: 2
+    Sprite: {fileID: -478705294955925439, guid: 0099ebc17ecd0429e818d96c7757b004, type: 3}
+    FineTuneOffset: {x: 12, y: 12}
+  - Type: 3
+    Sprite: {fileID: -3412082333349552788, guid: ed34f1d0c2939443ebfe43bce016a933, type: 3}
+    FineTuneOffset: {x: 12, y: 12}
+  - Type: 4
+    Sprite: {fileID: 6739228714503856718, guid: 3b5fafc19e00d470887fc6dac85248d0, type: 3}
+    FineTuneOffset: {x: 0, y: 8}
 --- !u!1 &1607721480
 GameObject:
   m_ObjectHideFlags: 0
