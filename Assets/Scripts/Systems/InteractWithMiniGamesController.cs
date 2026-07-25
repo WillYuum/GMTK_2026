@@ -28,7 +28,6 @@ public class InteractWithMiniGamesController : MonoBehaviour
 
         if (hit.collider == null)
         {
-            Debug.Log("No collider hit");
             return;
         }
 
