@@ -118,17 +118,22 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
     }
 
 
+
+    [SerializeField] private float _readdDelay = 0.1f;
+
     private void ReAddAllScrews()
     {
+        Sequence sequence = DOTween.Sequence();
+
         foreach (Transform screw in _screwsHolder)
         {
             if (screw.TryGetComponent<Screw>(out var screwComponent))
             {
-                screwComponent.ReaddScrew();
+                sequence.AppendCallback(() => screwComponent.ReaddScrew());
+                sequence.AppendInterval(_readdDelay);
             }
         }
     }
-
 
     public bool CheckIsLocked()
     {

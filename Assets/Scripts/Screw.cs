@@ -48,8 +48,16 @@ public class Screw : MonoBehaviour, IHoverInteractable
 
     public void ReaddScrew()
     {
-        _screwSpriteRenderer.DOFade(1, 0.3f);
-        _screwSpriteRenderer.transform.DOLocalRotate(Vector3.zero, 0.8f, RotateMode.FastBeyond360).SetEase(Ease.InOutQuad);
+        _screwSpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+        _screwSpriteRenderer.transform.localRotation = Quaternion.Euler(0f, 0f, -360f);
+
+        DOTween.Sequence()
+            .Append(_screwSpriteRenderer.DOFade(1f, 0.3f))
+            .Append(_screwSpriteRenderer.transform.DOLocalRotate(
+                Vector3.zero,
+                0.8f,
+                RotateMode.FastBeyond360))
+            .SetEase(Ease.OutCubic);
     }
 
     public void OnHoverEnter()
