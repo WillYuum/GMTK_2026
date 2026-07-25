@@ -3,27 +3,44 @@ using UnityEngine.InputSystem;
 
 public class PipeFixerMiniGame : MiniGame
 {
+    [SerializeField] private Transform _pipeRowsHolder;
 
-
-    [SerializeField] private Transform _pipesHolder;
-
-    private Pipe[] _referencePipes;
-
-    private PipeFlowDirection _goalFlowDirection;
-
+    private Transform[] _pipeRows;
+    private Pipe[][] _pipesPerRow;
+    private PipeFlowDirection[] _goalDirections;
 
     public override void OnInitialize()
     {
-        _referencePipes = _pipesHolder.GetComponentsInChildren<Pipe>(true);
+        GetPipeRows();
 
-        foreach (var pipe in _referencePipes)
+        _pipesPerRow = new Pipe[_pipeRows.Length][];
+        _goalDirections = new PipeFlowDirection[_pipeRows.Length];
+
+        for (int row = 0; row < _pipeRows.Length; row++)
         {
-            pipe.SetDirection((PipeFlowDirection)Random.Range(0, 4));
-        }
+            _pipesPerRow[row] =
+                _pipeRows[row].GetComponentsInChildren<Pipe>(true);
 
-        // allowed assigning for direction are left and right only for now
-        _goalFlowDirection = Random.Range(0, 2) == 0 ? PipeFlowDirection.Left : PipeFlowDirection.Right;
+            if (_pipesPerRow[row].Length == 0)
+            {
+                Debug.LogWarning(
+                    $"Pipe row '{_pipeRows[row].name}' contains no pipes.");
+
+                continue;
+            }
+
+            foreach (var pipe in _pipesPerRow[row])
+            {
+                pipe.SetDirection(
+                    (PipeFlowDirection)Random.Range(0, 4));
+            }
+
+            _goalDirections[row] = Random.Range(0, 2) == 0
+                ? PipeFlowDirection.Left
+                : PipeFlowDirection.Right;
+        }
     }
+
     public override void OnStart()
     {
 
@@ -31,13 +48,24 @@ public class PipeFixerMiniGame : MiniGame
 
     public override void OnUpdate()
     {
-        if (!Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current == null ||
+            !Mouse.current.leftButton.wasPressedThisFrame)
         {
             return;
         }
 
-        var hit = Physics2D.Raycast(
-            Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()),
+        if (Camera.main == null)
+        {
+            Debug.LogWarning("No camera is tagged as MainCamera.");
+            return;
+        }
+
+        Vector3 mouseWorldPosition =
+            Camera.main.ScreenToWorldPoint(
+                Mouse.current.position.ReadValue());
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            mouseWorldPosition,
             Vector2.zero);
 
         if (hit.collider == null)
@@ -45,33 +73,72 @@ public class PipeFixerMiniGame : MiniGame
             return;
         }
 
-        if (hit.collider.TryGetComponent<Pipe>(out var pipe))
-        {
-            pipe.HandleRotateClockWise();
+        Pipe pipe = hit.collider.GetComponentInParent<Pipe>();
 
-            if (CheckIfAllPipesAligned())
-            {
-                TriggerFinishedGame(true);
-            }
+        if (pipe == null)
+        {
+            return;
+        }
+
+        pipe.HandleRotateClockWise();
+
+        if (CheckIfAllPipesAligned())
+        {
+            TriggerFinishedGame(true);
         }
     }
 
     public override void OnEnd()
     {
+    }
 
+    private void GetPipeRows()
+    {
+        if (_pipeRowsHolder == null)
+        {
+            Debug.LogError("Pipe rows holder has not been assigned.");
+
+            _pipeRows = System.Array.Empty<Transform>();
+            return;
+        }
+
+        int rowCount = _pipeRowsHolder.childCount;
+
+        _pipeRows = new Transform[rowCount];
+
+        for (int row = 0; row < rowCount; row++)
+        {
+            _pipeRows[row] = _pipeRowsHolder.GetChild(row);
+        }
+
+        Debug.Log($"Found {_pipeRows.Length} pipe rows.");
     }
 
     private bool CheckIfAllPipesAligned()
     {
-        foreach (var pipe in _referencePipes)
+        if (_pipesPerRow == null || _pipesPerRow.Length == 0)
         {
-            if (pipe.CurrentDirection != _goalFlowDirection)
+            return false;
+        }
+
+        for (int row = 0; row < _pipesPerRow.Length; row++)
+        {
+            Pipe[] pipes = _pipesPerRow[row];
+
+            if (pipes == null || pipes.Length == 0)
             {
                 return false;
+            }
+
+            foreach (Pipe pipe in pipes)
+            {
+                if (pipe.CurrentDirection != _goalDirections[row])
+                {
+                    return false;
+                }
             }
         }
 
         return true;
     }
-
 }
