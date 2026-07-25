@@ -39,7 +39,12 @@ public class MiniGameLauncher : MonoBehaviour
 
     public void EndMiniGame(bool isSuccess)
     {
+        _currentMiniGame.IsGameActive = false;
+        _currentMiniGame.gameObject.SetActive(false);
         _currentMiniGamePanel.PlaceBackPanel(isSuccess);
         FindAnyObjectByType<CameraController>().ToggleCameraMovement(true);
+
+        _currentMiniGame = null;
+        _currentMiniGamePanel = null;
     }
 }

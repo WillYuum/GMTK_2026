@@ -40,7 +40,16 @@ public class Screw : MonoBehaviour, IHoverInteractable
     {
         _screwSpriteRenderer
             .DOFade(0, 0.3f)
-            .OnComplete(() => Destroy(gameObject));
+            .OnComplete(() =>
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+            });
+    }
+
+    public void ReaddScrew()
+    {
+        _screwSpriteRenderer.DOFade(1, 0.3f);
+        _screwSpriteRenderer.transform.DOLocalRotate(Vector3.zero, 0.8f, RotateMode.FastBeyond360).SetEase(Ease.InOutQuad);
     }
 
     public void OnHoverEnter()

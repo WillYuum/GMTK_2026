@@ -111,14 +111,42 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
                     seq.Append(
                         _taskCompletedCheckmark.transform.DOPunchPosition(Vector3.down * 1.5f, 0.08f, 1, 0)
                     );
+
+                    ReAddAllScrews();
                 }
             });
     }
 
 
+    private void ReAddAllScrews()
+    {
+        foreach (Transform screw in _screwsHolder)
+        {
+            if (screw.TryGetComponent<Screw>(out var screwComponent))
+            {
+                screwComponent.ReaddScrew();
+            }
+        }
+    }
+
+
     public bool CheckIsLocked()
     {
-        return _screwsHolder.childCount > 0;
+        bool isLocked = false;
+
+        for (int i = 0; i < _screwsHolder.childCount; i++)
+        {
+            if (_screwsHolder.GetChild(i).TryGetComponent<BoxCollider2D>(out var screwComponent))
+            {
+                if (screwComponent.enabled == true)
+                {
+                    isLocked = true;
+                    break;
+                }
+            }
+        }
+
+        return isLocked;
     }
 
     public void OnHoverEnter()
