@@ -16,10 +16,13 @@ public class GameloopManager : MonoBehaviour
 
     [SerializeField] private CountDownTimerController _countDownTimerController;
 
+    public MiniGamePanel[] ListOfMiniGames { get; private set; }
+
 
     void Awake()
     {
         _cameraController = FindAnyObjectByType<CameraController>();
+        ListOfMiniGames = FindObjectsByType<MiniGamePanel>();
     }
 
     public void PrepareLoop()
@@ -37,6 +40,11 @@ public class GameloopManager : MonoBehaviour
         CurrentCountDownValue = StartingCountDownValue;
 
         _cameraController.ToggleCameraMovement(true);
+
+        foreach (var miniGame in ListOfMiniGames)
+        {
+            miniGame.SetState(MiniGamePanelState.Warning);
+        }
     }
 
     void Update()

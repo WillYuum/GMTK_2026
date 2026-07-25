@@ -2,12 +2,20 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
+
+public enum MiniGamePanelState
+{
+    Warning,
+    Solved,
+}
+
 [RequireComponent(typeof(BoxCollider2D))]
 public class MiniGamePanel : MonoBehaviour, IHoverInteractable
 {
     [SerializeField] public GameObject MiniGameHolder;
     [SerializeField] private SpriteRenderer _frontPanel;
     [SerializeField] private SpriteRenderer _taskCompletedCheckmark;
+    [SerializeField] private SpriteRenderer _taskWarningIcon;
 
     public PointerDisplayType PointerType => PointerDisplayType.ToolPointer;
 
@@ -35,6 +43,21 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
         _taskCompletedCheckmark.gameObject.SetActive(false);
     }
 
+    public void SetState(MiniGamePanelState state)
+    {
+        switch (state)
+        {
+            case MiniGamePanelState.Warning:
+                _taskWarningIcon.gameObject.SetActive(true);
+                _taskCompletedCheckmark.gameObject.SetActive(false);
+                break;
+            case MiniGamePanelState.Solved:
+                _taskWarningIcon.gameObject.SetActive(false);
+                _taskCompletedCheckmark.gameObject.SetActive(true);
+                break;
+        }
+    }
+
     public void RemovePanel(Action callback)
     {
         IsRemoved = true;
@@ -43,6 +66,9 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
         Sequence seq = DOTween.Sequence();
 
         float x = UnityEngine.Random.Range(-18f, 18f);
+
+
+        _taskCompletedCheckmark.DOFade(0, 0.2f);
 
         seq.Append(
             _frontPanel.transform.DOLocalMove(
@@ -77,6 +103,11 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
 
         _frontPanel.DOKill();
         _frontPanel.transform.DOKill();
+
+        if (isSuccess)
+        {
+            _taskCompletedCheckmark.gameObject.SetActive(false);
+        }
 
         _frontPanel.DOFade(1f, 0.2f);
         _frontPanel.transform
@@ -113,6 +144,11 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
                     );
 
                     ReAddAllScrews();
+
+                    seq.OnComplete(() =>
+                    {
+                        _taskCompletedCheckmark.DOFade(0, 0.2f).SetDelay(0.5f);
+                    });
                 }
             });
     }
