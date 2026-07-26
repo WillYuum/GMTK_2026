@@ -30,6 +30,10 @@ public class PointerDisplaySystem : MonoBehaviour
         public Vector2 FineTuneOffset;
     }
 
+    [SerializeField, Tooltip("Shows the OS cursor alongside the custom cursor for hotspot alignment.")]
+    private bool _debugShowSystemCursor;
+
+
     [Header("Cursor Settings")]
     [SerializeField] private SpriteRenderer _cursorRenderer;
     [SerializeField] private PointerData[] _pointers;
@@ -38,19 +42,26 @@ public class PointerDisplaySystem : MonoBehaviour
     private IHoverInteractable _currentHover;
     private PointerDisplayType _currentType = PointerDisplayType.Default;
 
-    private void Awake()
+    void Awake()
     {
         _camera = Camera.main;
-        // Cursor.visible = false;
+        Cursor.visible = false;
     }
 
-    private void Start()
+    void Start()
     {
         SetDefaultPointer();
     }
 
+    void OnDestroy()
+    {
+        Cursor.visible = true;
+    }
+
     private void LateUpdate()
     {
+        UpdateSystemCursor();
+
         UpdateCursorPosition();
         UpdateHover();
     }
@@ -164,5 +175,29 @@ public class PointerDisplaySystem : MonoBehaviour
     public void SetDefaultPointer()
     {
         SetPointer(PointerDisplayType.Default);
+    }
+
+
+    private void UpdateSystemCursor()
+    {
+#if UNITY_EDITOR
+        if (_debugShowSystemCursor)
+        {
+            Cursor.visible = true;
+            return;
+        }
+
+        Vector2 mouse = Mouse.current.position.ReadValue();
+
+        bool insideGameView =
+            mouse.x >= 0 &&
+            mouse.y >= 0 &&
+            mouse.x <= Screen.width &&
+            mouse.y <= Screen.height;
+
+        Cursor.visible = !insideGameView;
+#else
+    Cursor.visible = _showSystemCursorForAlignment;
+#endif
     }
 }
