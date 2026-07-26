@@ -6800,6 +6800,14 @@ MonoBehaviour:
       RandPitch: 1
       Min: 0.8
       Max: 1.2
+  - Name: Button_Jam
+    Clip: {fileID: 8300000, guid: d8aec70a3abac4c1581d2c2cd668635b, type: 3}
+    Volume: 0.5
+    Loop: 0
+    PitchProps:
+      RandPitch: 0
+      Min: 0
+      Max: 0
   _bgmConfigs:
   - Name: bgm
     Clip: {fileID: 8300000, guid: a6c89a63974144d8889e80aa6135aa27, type: 3}

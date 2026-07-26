@@ -75,6 +75,7 @@ public class ClickAwayMiniGame : MiniGame
             return;
 
         pressedButton.SetState(ButtonState.Pressed, GetSprite(ButtonState.Pressed));
+        AudioManager.Instance.PlaySFX("Button");
 
         foreach (var button in _buttons)
         {
@@ -85,12 +86,17 @@ public class ClickAwayMiniGame : MiniGame
             {
                 case ButtonState.Locked:
                     if (Random.value < _unlockChance)
+                    {
                         button.SetState(ButtonState.Available, GetSprite(ButtonState.Available));
+                    }
                     break;
 
                 case ButtonState.Available:
                     if (Random.value < _lockChance)
+                    {
+                        AudioManager.Instance.PlaySFX("Button_Jam");
                         button.SetState(ButtonState.Locked, GetSprite(ButtonState.Locked));
+                    }
                     break;
 
                 case ButtonState.Pressed:
