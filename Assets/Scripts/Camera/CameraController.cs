@@ -61,15 +61,15 @@ public class CameraController : MonoBehaviour
     {
         Vector2 movement = Vector2.zero;
 
-        if (mousePosition.x < MovementZone)
-        {
-            movement.x = -(1f - mousePosition.x / MovementZone);
-        }
+        // if (mousePosition.x < MovementZone)
+        // {
+        //     movement.x = -(1f - mousePosition.x / MovementZone);
+        // }
 
-        else if (mousePosition.x > Screen.width - MovementZone)
-        {
-            movement.x = (mousePosition.x - (Screen.width - MovementZone)) / MovementZone;
-        }
+        // else if (mousePosition.x > Screen.width - MovementZone)
+        // {
+        //     movement.x = (mousePosition.x - (Screen.width - MovementZone)) / MovementZone;
+        // }
 
         if (mousePosition.y < MovementZone)
         {
