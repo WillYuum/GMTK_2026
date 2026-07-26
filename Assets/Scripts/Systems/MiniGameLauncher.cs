@@ -15,6 +15,8 @@ public class MiniGameLauncher : MonoBehaviour
         _currentMiniGame = miniGame;
         _currentMiniGame.gameObject.SetActive(true);
 
+        miniGame.BackPanelRect = _currentMiniGamePanel.GetBackPanelRect();
+
         miniGame.OnInitialize();
     }
 

@@ -14,6 +14,7 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
 {
     [SerializeField] public GameObject MiniGameHolder;
     [SerializeField] private SpriteRenderer _frontPanel;
+    [SerializeField] private SpriteRenderer _BackPanel;
     [SerializeField] private SpriteRenderer _taskCompletedCheckmark;
     [SerializeField] private SpriteRenderer _taskWarningIcon;
 
@@ -37,6 +38,9 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
 
     void Start()
     {
+        _boxCollider.size = new Vector2(_frontPanel.localBounds.size.x, _frontPanel.localBounds.size.y);
+        _boxCollider.offset = new Vector2(_frontPanel.transform.localPosition.x, _frontPanel.transform.localPosition.y);
+
         MiniGameHolder.SetActive(false);
         _frontPanel.transform.parent.gameObject.SetActive(true); //incase it was disabled in the scene editor
 
@@ -188,6 +192,12 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
         }
 
         return isLocked;
+    }
+
+    public Rect GetBackPanelRect()
+    {
+        Bounds bounds = _BackPanel.bounds;
+        return new Rect(bounds.min.x, bounds.min.y, bounds.size.x, bounds.size.y);
     }
 
     public void OnHoverEnter()

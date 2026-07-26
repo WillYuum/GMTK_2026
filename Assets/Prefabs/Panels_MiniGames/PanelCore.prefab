@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MiniGamePanel
   MiniGameHolder: {fileID: 6039733851186941393}
   _frontPanel: {fileID: 5651775703971454060}
+  _BackPanel: {fileID: 3101086361448741006}
   _taskCompletedCheckmark: {fileID: 3622195770183239486}
   _taskWarningIcon: {fileID: 6852032687943365702}
   _screwsHolder: {fileID: 2234106531281314288}

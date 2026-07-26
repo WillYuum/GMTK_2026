@@ -7,6 +7,8 @@ public abstract class MiniGame : MonoBehaviour, IMiniGame
 
     public event System.Action<bool> OnGameFinished;
 
+    public Rect BackPanelRect { get; set; }
+
     protected virtual void TriggerFinishedGame(bool isSuccess)
     {
         if (!IsGameActive)
@@ -42,6 +44,6 @@ public interface IMiniGame
 {
     void OnInitialize();
     void OnStart();
-    void OnEnd();
     void OnUpdate();
+    void OnEnd();
 }
