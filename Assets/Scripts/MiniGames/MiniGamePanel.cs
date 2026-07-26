@@ -38,6 +38,7 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
 
     void Start()
     {
+        _boxCollider.enabled = true;
         _boxCollider.size = new Vector2(_frontPanel.localBounds.size.x, _frontPanel.localBounds.size.y);
         _boxCollider.offset = new Vector2(_frontPanel.transform.localPosition.x, _frontPanel.transform.localPosition.y);
 
