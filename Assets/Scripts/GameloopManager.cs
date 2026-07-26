@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,8 @@ public class GameloopManager : MonoBehaviour
 
     private float _timer = 1f;
 
+    [SerializeField] private GameObject _rocketEntity;
+    [SerializeField] private GameObject _hud;
 
     private CameraController _cameraController;
 
@@ -95,25 +98,47 @@ public class GameloopManager : MonoBehaviour
 
         Scene scene = SceneManager.GetSceneByName(sceneName);
 
-        if (scene.IsValid() && scene.isLoaded)
+
+
+
+        //Hide UI for timer
+        _hud.GetComponent<CanvasGroup>().DOFade(0f, 1f);
+
+        // fade out rocket
+        //Get all sprite renderers from rocket entity
+        var spriteRenderers = _rocketEntity.GetComponentsInChildren<SpriteRenderer>();
+        var sequence = DOTween.Sequence();
+        foreach (var spriteRenderer in spriteRenderers)
         {
-            GameEndSequence gameEndSequence = FindAnyObjectByType<GameEndSequence>();
-            gameEndSequence.PlayEnding();
+            // fade out the sprite renderer
+            sequence.Join(FadeOutSprite(spriteRenderer, 1f));
         }
-        else
+
+
+        sequence.OnComplete(() =>
         {
-            new SceneAdditiveLoader().LoadSceneAdditive(sceneName, () =>
+            if (scene.IsValid() && scene.isLoaded)
             {
                 GameEndSequence gameEndSequence = FindAnyObjectByType<GameEndSequence>();
                 gameEndSequence.PlayEnding();
-            });
-        }
+            }
+            else
+            {
+                new SceneAdditiveLoader().LoadSceneAdditive(sceneName, () =>
+                {
+                    GameEndSequence gameEndSequence = FindAnyObjectByType<GameEndSequence>();
+                    gameEndSequence.PlayEnding();
+                });
+            }
+        });
+    }
 
-        // Pause every possible minigame
-
-        // Start showing the ending screen with rocket flying sequence
+    private Tween FadeOutSprite(SpriteRenderer spriteRenderer, float duration)
+    {
+        return spriteRenderer.DOFade(0f, duration);
     }
 }
+
 
 
 
