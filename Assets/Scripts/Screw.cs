@@ -10,11 +10,21 @@ public class Screw : MonoBehaviour, IHoverInteractable
 
     public PointerDisplayType PointerType => PointerDisplayType.ToolScrewdriver;
 
+    private bool _isRotating = false;
+
     public bool Rotate()
     {
-        if (_rotationCount >= MaxRotations)
-            return true;
+        if (_isRotating)
+        {
+            return false;
+        }
 
+        if (_rotationCount >= MaxRotations)
+        {
+            return true;
+        }
+
+        _isRotating = true;
         _rotationCount++;
 
         AudioManager.Instance.PlaySFX("RotateScrew");
@@ -24,7 +34,11 @@ public class Screw : MonoBehaviour, IHoverInteractable
                 new Vector3(0, 0, 360f),
                 0.5f,
                 RotateMode.FastBeyond360)
-            .SetEase(Ease.InOutQuad);
+            .SetEase(Ease.InOutQuad)
+            .OnComplete(() =>
+            {
+                _isRotating = false;
+            });
 
         if (_rotationCount >= MaxRotations)
         {
@@ -36,7 +50,6 @@ public class Screw : MonoBehaviour, IHoverInteractable
 
         return false;
     }
-
     private void PlayRemoveScrew()
     {
         _screwSpriteRenderer
