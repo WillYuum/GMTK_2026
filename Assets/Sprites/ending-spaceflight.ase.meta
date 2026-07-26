@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 62aa0f82044524a28b69d336a89b4932
+guid: 407edfa0646ad42c09cbdbf7a7e81b5c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,10 +33,10 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 0
+    spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 1
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -101,7 +101,7 @@ ScriptedImporter:
     addShadowCasters: 0
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
-  platformSettingsDirtyTick: 639204443026983060
+  platformSettingsDirtyTick: 0
   singleSpriteImportData:
   - name: 
     originalName: 
@@ -125,7 +125,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: sketch
+  - name: ending-spaceflight
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -135,9 +135,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 1280
-      height: 1440
-    spriteID: 493d69129da784909bba8fe2a5d94860
+      width: 540
+      height: 320
+    spriteID: 252c58c3583cd4b4c936169cbc6674d4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -151,68 +151,32 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 798490762
+      value0: 823961684
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: sketch
+    name: ending-spaceflight
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: sketch
+    - name: ending-spaceflight
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 1280
-        height: 1440
-      spriteId: 493d69129da784909bba8fe2a5d94860
+        width: 540
+        height: 320
+      spriteId: 252c58c3583cd4b4c936169cbc6674d4
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
     parentIndex: -1
   tileSets: []
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
-  previousTextureSize: {x: 2048, y: 2048}
-  canvasSize: {x: 1280, y: 1440}
+  previousTextureSize: {x: 1024, y: 512}
+  canvasSize: {x: 540, y: 320}
