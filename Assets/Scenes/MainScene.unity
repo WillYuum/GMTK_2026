@@ -5966,6 +5966,9 @@ MonoBehaviour:
   - Type: 4
     Sprite: {fileID: 6739228714503856718, guid: 3b5fafc19e00d470887fc6dac85248d0, type: 3}
     FineTuneOffset: {x: 0, y: 8}
+  - Type: 5
+    Sprite: {fileID: 5808665313634908867, guid: faf87a73eb2154374b89d4a5cab71506, type: 3}
+    FineTuneOffset: {x: 0, y: 0}
 --- !u!1 &1607721480
 GameObject:
   m_ObjectHideFlags: 0
@@ -6378,7 +6381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4861208070846442301, guid: 79116893e7927fa418f33c19498d4394, type: 3}
       propertyPath: orthographic size
-      value: 181.83333
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
