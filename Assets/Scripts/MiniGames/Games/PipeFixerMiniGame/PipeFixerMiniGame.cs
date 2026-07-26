@@ -83,6 +83,7 @@ public class PipeFixerMiniGame : MiniGame
             return;
         }
 
+        AudioManager.Instance.PlaySFX("Rotate_Pipe");
         pipe.HandleRotateClockWise();
 
         if (CheckIfAllPipesAligned())
