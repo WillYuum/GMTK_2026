@@ -77,16 +77,17 @@ public class GameloopManager : MonoBehaviour
         string sceneName = "GameEndSequence";
 
         Scene scene = SceneManager.GetSceneByName(sceneName);
-        GameEndSequence gameEndSequence = FindAnyObjectByType<GameEndSequence>();
 
         if (scene.IsValid() && scene.isLoaded)
         {
+            GameEndSequence gameEndSequence = FindAnyObjectByType<GameEndSequence>();
             gameEndSequence.PlayEnding();
         }
         else
         {
             new SceneAdditiveLoader().LoadSceneAdditive(sceneName, () =>
             {
+                GameEndSequence gameEndSequence = FindAnyObjectByType<GameEndSequence>();
                 gameEndSequence.PlayEnding();
             });
         }
