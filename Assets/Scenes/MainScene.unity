@@ -8286,6 +8286,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CountDownTimer
       objectReference: {fileID: 0}
+    - target: {fileID: 6091310612398199524, guid: 286f0b654a1ce8a468733a4a516334a8, type: 3}
+      propertyPath: _warningColor.b
+      value: 0.68235296
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091310612398199524, guid: 286f0b654a1ce8a468733a4a516334a8, type: 3}
+      propertyPath: _warningColor.g
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091310612398199524, guid: 286f0b654a1ce8a468733a4a516334a8, type: 3}
+      propertyPath: _warningColor.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
