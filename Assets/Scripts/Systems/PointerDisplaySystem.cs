@@ -197,7 +197,7 @@ public class PointerDisplaySystem : MonoBehaviour
 
         Cursor.visible = !insideGameView;
 #else
-    Cursor.visible = _showSystemCursorForAlignment;
+    Cursor.visible = _debugShowSystemCursor;
 #endif
     }
 }
