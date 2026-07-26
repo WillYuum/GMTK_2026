@@ -7,14 +7,19 @@ public class MiniGameLauncher : MonoBehaviour
     private MiniGamePanel _currentMiniGamePanel;
     private GameloopManager _gameloopManager;
 
+    private InteractWithMiniGamesController _interactWithMiniGamesController;
+
     void Awake()
     {
         _gameloopManager = FindAnyObjectByType<GameloopManager>();
+        _interactWithMiniGamesController = FindAnyObjectByType<InteractWithMiniGamesController>();
     }
 
     public void Initialize(MiniGame miniGame, MiniGamePanel miniGamePanel)
     {
         FindAnyObjectByType<CameraController>().ToggleCameraMovement(false);
+
+        _interactWithMiniGamesController.enabled = false;
 
         _currentMiniGamePanel = miniGamePanel;
         _currentMiniGamePanel.MiniGameHolder.SetActive(true);
@@ -58,11 +63,12 @@ public class MiniGameLauncher : MonoBehaviour
             _gameloopManager.NotifyMiniGameFinished();
         }
 
-        await Awaitable.WaitForSecondsAsync(1.5f);
+        await Awaitable.WaitForSecondsAsync(1.0f);
 
         _currentMiniGame.gameObject.SetActive(false);
         _currentMiniGamePanel.PlaceBackPanel(isSuccess);
 
+        _interactWithMiniGamesController.enabled = true;
 
         _currentMiniGame = null;
         _currentMiniGamePanel = null;
