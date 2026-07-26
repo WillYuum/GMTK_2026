@@ -10,12 +10,19 @@ public class GameEndSequence : MonoBehaviour
 
     private GameObject[] _sliders;
 
+
+    private GameloopManager _gameloopManager;
+
     private bool _isPlaying;
 
     public void PlayEnding()
     {
         if (_isPlaying)
             return;
+
+        _gameloopManager = FindAnyObjectByType<GameloopManager>();
+        int finishedCount = _gameloopManager.MiniGameFinishedTracker.GetRemainingMiniGames();
+        int totalCount = _gameloopManager.MiniGameFinishedTracker.MiniGameCounts;
 
         _isPlaying = true;
 

@@ -5,6 +5,12 @@ public class MiniGameLauncher : MonoBehaviour
 
     private MiniGame _currentMiniGame;
     private MiniGamePanel _currentMiniGamePanel;
+    private GameloopManager _gameloopManager;
+
+    void Awake()
+    {
+        _gameloopManager = FindAnyObjectByType<GameloopManager>();
+    }
 
     public void Initialize(MiniGame miniGame, MiniGamePanel miniGamePanel)
     {
@@ -47,6 +53,11 @@ public class MiniGameLauncher : MonoBehaviour
         _currentMiniGame.gameObject.SetActive(false);
         _currentMiniGamePanel.PlaceBackPanel(isSuccess);
         FindAnyObjectByType<CameraController>().ToggleCameraMovement(true);
+
+        if (isSuccess)
+        {
+            _gameloopManager.MiniGameFinishedTracker.IncrementFinishedCount();
+        }
 
         _currentMiniGame = null;
         _currentMiniGamePanel = null;

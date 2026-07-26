@@ -13,6 +13,8 @@ public class GameloopManager : MonoBehaviour
 
     private CameraController _cameraController;
 
+    public MiniGameFinishedTracker MiniGameFinishedTracker { get; private set; }
+
 
     [SerializeField] private CountDownTimerController _countDownTimerController;
 
@@ -38,6 +40,8 @@ public class GameloopManager : MonoBehaviour
         Debug.Log($"[GameloopManager] StartGame");
         _countDownTimerController.SetTime(StartingCountDownValue);
         CurrentCountDownValue = StartingCountDownValue;
+
+        MiniGameFinishedTracker = new(ListOfMiniGames.Length);
 
         _cameraController.ToggleCameraMovement(true);
 
@@ -111,4 +115,35 @@ class SceneAdditiveLoader
             loadOperation.completed += _ => callback();
         }
     }
+}
+
+
+
+public class MiniGameFinishedTracker
+{
+    public int MiniGameCounts { get; private set; }
+    public int MiniGameFinished { get; private set; }
+
+    public MiniGameFinishedTracker(int miniGameCounts)
+    {
+        MiniGameCounts = miniGameCounts;
+        MiniGameFinished = 0;
+    }
+
+
+    public void IncrementFinishedCount()
+    {
+        MiniGameFinished++;
+    }
+
+    public int GetRemainingMiniGames()
+    {
+        return MiniGameCounts - MiniGameFinished;
+    }
+
+    public bool IsAllMiniGamesFinished()
+    {
+        return MiniGameFinished >= MiniGameCounts;
+    }
+
 }
