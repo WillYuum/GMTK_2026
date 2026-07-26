@@ -6,7 +6,7 @@ public class Screw : MonoBehaviour, IHoverInteractable
     [SerializeField] private SpriteRenderer _screwSpriteRenderer;
 
     private int _rotationCount;
-    private const int MaxRotations = 5;
+    private const int MaxRotations = 3;
 
     public PointerDisplayType PointerType => PointerDisplayType.ToolScrewdriver;
 
