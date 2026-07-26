@@ -7080,6 +7080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6d157832b6df54398be0047413b549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointerDisplaySystem
+  _debugShowSystemCursor: 0
   _cursorRenderer: {fileID: 1925204888}
   _pointers:
   - Type: 0
@@ -8123,7 +8124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197987606080801636, guid: 286f0b654a1ce8a468733a4a516334a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -54
+      value: -34
       objectReference: {fileID: 0}
     - target: {fileID: 197987606080801636, guid: 286f0b654a1ce8a468733a4a516334a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8314,8 +8315,16 @@ PrefabInstance:
       value: -504.0084
       objectReference: {fileID: 0}
     - target: {fileID: 7037582713401558046, guid: 27b1df9b34aef4293abdb55182bc51e0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -293.9964
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037582713401558046, guid: 27b1df9b34aef4293abdb55182bc51e0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037582713401558046, guid: 27b1df9b34aef4293abdb55182bc51e0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 146.9982
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
