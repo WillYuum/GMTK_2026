@@ -1,3 +1,4 @@
+using AudioClasses;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -40,7 +41,7 @@ public class GameEndSequence : MonoBehaviour
             return;
 
         _gameloopManager = FindAnyObjectByType<GameloopManager>();
-        int finishedCount = _gameloopManager.MiniGameFinishedTracker.GetRemainingMiniGames();
+        int finishedCount = _gameloopManager.MiniGameFinishedTracker.MiniGameFinished;
         int totalCount = _gameloopManager.MiniGameFinishedTracker.MiniGameCounts;
 
         _isPlaying = true;
@@ -49,8 +50,8 @@ public class GameEndSequence : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
 
-        _banner.color = new Color(_banner.color.r, _banner.color.g, _banner.color.b, 0);
-        sequence.Append(_banner.DOFade(1, 0.65f));
+        // _banner.color = new Color(_banner.color.r, _banner.color.g, _banner.color.b, 0);
+        // sequence.Append(_banner.DOFade(1, 0.65f));
 
         // foreach (GameObject slide in _sliders)
         // {
@@ -66,7 +67,13 @@ public class GameEndSequence : MonoBehaviour
         // }
 
         _sequences.Start();
+        AudioManager.Instance.PlaySFX("Rocket_Launch");
         sequence.Append(TweenRocket());
+
+        sequence.AppendCallback(() =>
+        {
+            AudioManager.Instance.PlayBGM("title_bgm");
+        });
 
 
         for (int i = 0; i < _sequences.Frames.Length; i++)

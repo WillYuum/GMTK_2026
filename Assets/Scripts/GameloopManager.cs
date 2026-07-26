@@ -91,7 +91,6 @@ public class GameloopManager : MonoBehaviour
     public void ShowGameEnding()
     {
         AudioManager.Instance.StopAllBGM();
-        AudioManager.Instance.PlaySFX("title_bgm");
 
         _cameraController.ToggleCameraMovement(false);
 
