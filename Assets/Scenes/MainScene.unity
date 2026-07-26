@@ -467,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f003ba2b27a3e154c9051fd395413597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniGameLauncher
+  _delayWhenMiniGameFinished: 0.5
 --- !u!1001 &221299423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6764,7 +6765,7 @@ MonoBehaviour:
       Max: 0
   _bgmConfigs:
   - Name: bgm
-    Clip: {fileID: 8300000, guid: b3ca64d8349fd475abbda5c049ab6441, type: 3}
+    Clip: {fileID: 8300000, guid: a6c89a63974144d8889e80aa6135aa27, type: 3}
     Volume: 0.5
     Loop: 0
     PitchProps:
@@ -6772,7 +6773,7 @@ MonoBehaviour:
       Min: 0
       Max: 0
   - Name: title_bgm
-    Clip: {fileID: 8300000, guid: e8094e52cbd1f409e93b1cb800c19902, type: 3}
+    Clip: {fileID: 8300000, guid: b4b83ec624c3944ad91fb274031f548a, type: 3}
     Volume: 0.5
     Loop: 0
     PitchProps:
