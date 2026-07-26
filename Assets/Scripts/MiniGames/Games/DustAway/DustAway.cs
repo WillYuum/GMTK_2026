@@ -42,6 +42,8 @@ public class DustAway : MiniGame
             if (hit.collider != null && hit.collider.TryGetComponent(out Dust dust))
             {
                 GameObject dustGO = hit.collider.gameObject;
+                AudioManager.Instance.PlaySFX("Dust");
+
                 spawnedDust.Remove(dustGO);
                 Destroy(dustGO);
             }

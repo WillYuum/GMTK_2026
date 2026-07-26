@@ -60,6 +60,8 @@ public class MiniGameLauncher : MonoBehaviour
         _currentMiniGame.IsGameActive = false;
         FindAnyObjectByType<CameraController>().ToggleCameraMovement(true);
 
+        AudioManager.Instance.PlaySFX("CompleteMinigame");
+
         if (isSuccess)
         {
             _gameloopManager.NotifyMiniGameFinished();
