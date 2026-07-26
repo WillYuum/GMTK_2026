@@ -34,7 +34,7 @@ public class MiniGameLauncher : MonoBehaviour
         _currentMiniGame.OnGameFinished += (isSuccess) =>
         {
             Debug.Log($"MiniGame finished. Success: {isSuccess}");
-            EndMiniGame(isSuccess);
+            _ = EndMiniGame(isSuccess);
         };
     }
 
@@ -47,17 +47,22 @@ public class MiniGameLauncher : MonoBehaviour
         }
     }
 
-    public void EndMiniGame(bool isSuccess)
+
+    public async Awaitable EndMiniGame(bool isSuccess)
     {
         _currentMiniGame.IsGameActive = false;
-        _currentMiniGame.gameObject.SetActive(false);
-        _currentMiniGamePanel.PlaceBackPanel(isSuccess);
         FindAnyObjectByType<CameraController>().ToggleCameraMovement(true);
 
         if (isSuccess)
         {
             _gameloopManager.NotifyMiniGameFinished();
         }
+
+        await Awaitable.WaitForSecondsAsync(1.5f);
+
+        _currentMiniGame.gameObject.SetActive(false);
+        _currentMiniGamePanel.PlaceBackPanel(isSuccess);
+
 
         _currentMiniGame = null;
         _currentMiniGamePanel = null;
