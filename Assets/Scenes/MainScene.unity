@@ -6539,7 +6539,7 @@ Transform:
   m_GameObject: {fileID: 1211337310}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.79901, y: -236, z: 0}
+  m_LocalPosition: {x: 46.79901, y: -326, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6984,11 +6984,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ec77f6a27ec66468a9207ac28caccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  _moveSpeed: 90
-  _acceleration: 180
+  _moveSpeed: 180
+  _acceleration: 360
   _cameraBounds:
-    m_Center: {x: 0, y: 2.5, z: 0}
-    m_Extent: {x: 168, y: 350, z: 0}
+    m_Center: {x: 0, y: 184, z: 0}
+    m_Extent: {x: 209.2, y: 256.2, z: 0}
   MovementZone: 100
 --- !u!1 &1407048918
 GameObject:
