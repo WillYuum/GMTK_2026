@@ -30,41 +30,57 @@ public class PointerDisplaySystem : MonoBehaviour
         public Vector2 FineTuneOffset;
     }
 
-    [SerializeField, Tooltip("Shows the OS cursor alongside the custom cursor for hotspot alignment.")]
-    private bool _debugShowSystemCursor;
-
-
     [Header("Cursor Settings")]
     [SerializeField] private SpriteRenderer _cursorRenderer;
     [SerializeField] private PointerData[] _pointers;
+
+#if UNITY_EDITOR
+    [SerializeField] private bool _debugShowSystemCursor;
+    private bool _lastDebugShowSystemCursor;
+#endif
 
     private Camera _camera;
     private IHoverInteractable _currentHover;
     private PointerDisplayType _currentType = PointerDisplayType.Default;
 
-    void Awake()
+    private void Awake()
     {
         _camera = Camera.main;
+
+#if UNITY_EDITOR
+        ApplySystemCursorVisibility();
+#else
         Cursor.visible = false;
+#endif
     }
 
-    void Start()
+    private void Start()
     {
         SetDefaultPointer();
     }
 
-    void OnDestroy()
-    {
-        Cursor.visible = true;
-    }
-
     private void LateUpdate()
     {
-        UpdateSystemCursor();
+#if UNITY_EDITOR
+        ApplySystemCursorVisibility();
+#endif
 
         UpdateCursorPosition();
         UpdateHover();
     }
+
+#if UNITY_EDITOR
+    private void ApplySystemCursorVisibility()
+    {
+        if (_lastDebugShowSystemCursor == _debugShowSystemCursor)
+        {
+            return;
+        }
+
+        Cursor.visible = _debugShowSystemCursor;
+        _lastDebugShowSystemCursor = _debugShowSystemCursor;
+    }
+#endif
 
     private void UpdateCursorPosition()
     {
@@ -74,9 +90,7 @@ public class PointerDisplaySystem : MonoBehaviour
         Vector3 worldPos = _camera.ScreenToWorldPoint(mousePosition);
 
         Vector2 autoOffset = GetAutomaticOffset(_currentType);
-
         Vector2 manualOffset = GetCurrentManualOffset(_currentType);
-
 
         worldPos.x += autoOffset.x + manualOffset.x;
         worldPos.y += autoOffset.y + manualOffset.y;
@@ -86,7 +100,10 @@ public class PointerDisplaySystem : MonoBehaviour
 
     private Vector2 GetAutomaticOffset(PointerDisplayType type)
     {
-        if (_cursorRenderer.sprite == null) return Vector2.zero;
+        if (_cursorRenderer.sprite == null)
+        {
+            return Vector2.zero;
+        }
 
         Vector2 spriteSize = _cursorRenderer.sprite.bounds.size;
         Vector2 pivot = _cursorRenderer.sprite.pivot / _cursorRenderer.sprite.rect.size;
@@ -104,6 +121,7 @@ public class PointerDisplaySystem : MonoBehaviour
             case PointerDisplayType.Default:
             case PointerDisplayType.ToolPointer:
             case PointerDisplayType.ToolHand:
+            case PointerDisplayType.ToolWrench:
             default:
                 xOffset = -(spriteSize.x * pivot.x);
                 break;
@@ -175,29 +193,5 @@ public class PointerDisplaySystem : MonoBehaviour
     public void SetDefaultPointer()
     {
         SetPointer(PointerDisplayType.Default);
-    }
-
-
-    private void UpdateSystemCursor()
-    {
-#if UNITY_EDITOR
-        if (_debugShowSystemCursor)
-        {
-            Cursor.visible = true;
-            return;
-        }
-
-        Vector2 mouse = Mouse.current.position.ReadValue();
-
-        bool insideGameView =
-            mouse.x >= 0 &&
-            mouse.y >= 0 &&
-            mouse.x <= Screen.width &&
-            mouse.y <= Screen.height;
-
-        Cursor.visible = !insideGameView;
-#else
-    Cursor.visible = _debugShowSystemCursor;
-#endif
     }
 }
