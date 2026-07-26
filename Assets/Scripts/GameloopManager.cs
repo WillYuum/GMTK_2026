@@ -23,6 +23,8 @@ public class GameloopManager : MonoBehaviour
 
     public MiniGamePanel[] ListOfMiniGames { get; private set; }
 
+    [SerializeField] private GameObject[] _arrowsReferences;
+
 
     void Awake()
     {
@@ -99,7 +101,10 @@ public class GameloopManager : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(sceneName);
 
 
-
+        for (int i = 0; i < _arrowsReferences.Length; i++)
+        {
+            _arrowsReferences[i].SetActive(false);
+        }
 
         //Hide UI for timer
         _hud.GetComponent<CanvasGroup>().DOFade(0f, 1f);

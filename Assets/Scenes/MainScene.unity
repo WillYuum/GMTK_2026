@@ -7864,10 +7864,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd96a82d8ad95494391b89e97463248c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameloopManager
-  <StartingCountDownValue>k__BackingField: 90
+  <StartingCountDownValue>k__BackingField: 5
   _rocketEntity: {fileID: 6398089941208848020}
   _hud: {fileID: 810316192}
   _countDownTimerController: {fileID: 1653102187}
+  _arrowsReferences:
+  - {fileID: 1895845146}
+  - {fileID: 1942437709}
 --- !u!1 &1887838802
 GameObject:
   m_ObjectHideFlags: 0
