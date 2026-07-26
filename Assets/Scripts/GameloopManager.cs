@@ -87,6 +87,8 @@ public class GameloopManager : MonoBehaviour
 
     public void ShowGameEnding()
     {
+        AudioManager.Instance.StopAllBGM();
+
         _cameraController.ToggleCameraMovement(false);
 
         string sceneName = "GameEndSequence";

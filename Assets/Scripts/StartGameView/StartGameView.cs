@@ -11,7 +11,7 @@ public class StartGameView : MonoBehaviour
 
     void Start()
     {
-        _startGameButton.onClick.AddListener(ClickAnywhereToStart);
+        // _startGameButton.onClick.AddListener(ClickAnywhereToStart);
     }
 
 
@@ -32,6 +32,6 @@ public class StartGameView : MonoBehaviour
     private void ClickAnywhereToStart()
     {
         ToggleStartGameView(false);
-        FindAnyObjectByType<GameloopManager>().StartGame();
+        FindAnyObjectByType<GameManager>().StartGameLoop();
     }
 }

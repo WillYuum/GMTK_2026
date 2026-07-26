@@ -1166,7 +1166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &810316193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,7 +1444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8315444765844681086, guid: 0713fd6fb8e586740a9fcb70066b789f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6762,7 +6762,23 @@ MonoBehaviour:
       RandPitch: 0
       Min: 0
       Max: 0
-  _bgmConfigs: []
+  _bgmConfigs:
+  - Name: bgm
+    Clip: {fileID: 8300000, guid: b3ca64d8349fd475abbda5c049ab6441, type: 3}
+    Volume: 0.5
+    Loop: 0
+    PitchProps:
+      RandPitch: 0
+      Min: 0
+      Max: 0
+  - Name: title_bgm
+    Clip: {fileID: 8300000, guid: e8094e52cbd1f409e93b1cb800c19902, type: 3}
+    Volume: 0.5
+    Loop: 0
+    PitchProps:
+      RandPitch: 0
+      Min: 0
+      Max: 0
 --- !u!114 &1218479744 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5341875425990830710, guid: 652e41ff5473142498127c4b85d6ecc6, type: 3}
@@ -7106,7 +7122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc6e1934bd3218498009b1d9f7b42e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _startWithStartScreen: 0
+  _startWithStartScreen: 1
   _startGameView: {fileID: 1218479744}
 --- !u!1 &1476586456
 GameObject:
@@ -7152,7 +7168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6d157832b6df54398be0047413b549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointerDisplaySystem
-  _debugShowSystemCursor: 0
   _cursorRenderer: {fileID: 1925204888}
   _pointers:
   - Type: 0
@@ -7173,6 +7188,7 @@ MonoBehaviour:
   - Type: 5
     Sprite: {fileID: 5808665313634908867, guid: faf87a73eb2154374b89d4a5cab71506, type: 3}
     FineTuneOffset: {x: 15, y: 0}
+  _debugShowSystemCursor: 0
 --- !u!1001 &1546247877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8530,7 +8546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4022301072905397426, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5229247393019271032, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_IsActive

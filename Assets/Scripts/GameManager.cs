@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.Load();
         FindAnyObjectByType<GameloopManager>().PrepareLoop();
 
 #if UNITY_EDITOR
@@ -19,18 +20,21 @@ public class GameManager : MonoBehaviour
 
         if (startWithStartScreen)
         {
+            AudioManager.Instance.PlayBGM("title_bgm");
             _startGameView.ToggleStartGameView(true);
         }
         else
         {
+            AudioManager.Instance.PlayBGM("bgm");
             StartGameLoop();
         }
 
-        AudioManager.Instance.Load();
     }
 
     public void StartGameLoop()
     {
+        AudioManager.Instance.StopAllBGM();
+        AudioManager.Instance.PlayBGM("bgm");
         FindAnyObjectByType<GameloopManager>().StartGame();
     }
 }
