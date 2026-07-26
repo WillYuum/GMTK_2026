@@ -255,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4022301072905397426, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5651775703971454060, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_Size.x
@@ -682,7 +682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4022301072905397426, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5651775703971454060, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_Size.x
@@ -1028,7 +1028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4022301072905397426, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5651775703971454060, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_Size.x
@@ -6992,7 +6992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8315444765844681086, guid: 0713fd6fb8e586740a9fcb70066b789f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7157,19 +7157,19 @@ MonoBehaviour:
   _pointers:
   - Type: 0
     Sprite: {fileID: -478705294955925439, guid: 0099ebc17ecd0429e818d96c7757b004, type: 3}
-    FineTuneOffset: {x: 12, y: 12}
+    FineTuneOffset: {x: 12, y: 4}
   - Type: 1
     Sprite: {fileID: 8043751203756483971, guid: 418b007b8a6ce4f6c9bd59a67d4fe8a5, type: 3}
-    FineTuneOffset: {x: 15, y: 5}
+    FineTuneOffset: {x: 15, y: 3}
   - Type: 2
     Sprite: {fileID: -478705294955925439, guid: 0099ebc17ecd0429e818d96c7757b004, type: 3}
-    FineTuneOffset: {x: 12, y: 12}
+    FineTuneOffset: {x: 12, y: 3}
   - Type: 3
     Sprite: {fileID: -3412082333349552788, guid: ed34f1d0c2939443ebfe43bce016a933, type: 3}
-    FineTuneOffset: {x: 12, y: 12}
+    FineTuneOffset: {x: 0, y: 4}
   - Type: 4
     Sprite: {fileID: 6739228714503856718, guid: 3b5fafc19e00d470887fc6dac85248d0, type: 3}
-    FineTuneOffset: {x: 0, y: 8}
+    FineTuneOffset: {x: 0, y: 3}
   - Type: 5
     Sprite: {fileID: 5808665313634908867, guid: faf87a73eb2154374b89d4a5cab71506, type: 3}
     FineTuneOffset: {x: 15, y: 0}
@@ -7243,7 +7243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4022301072905397426, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5651775703971454060, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_Size.x
