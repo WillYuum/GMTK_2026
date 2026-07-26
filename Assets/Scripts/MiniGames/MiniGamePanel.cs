@@ -54,10 +54,18 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
             case MiniGamePanelState.Warning:
                 _taskWarningIcon.gameObject.SetActive(true);
                 _taskCompletedCheckmark.gameObject.SetActive(false);
+
+                // TODO wait until AudioManager is initialized
+                // AudioManager.Instance.PlaySFX("Malfunction");
+
                 break;
             case MiniGamePanelState.Solved:
                 _taskWarningIcon.gameObject.SetActive(false);
                 _taskCompletedCheckmark.gameObject.SetActive(true);
+
+                // TODO figure out why this doesn't trigger
+                AudioManager.Instance.PlaySFX("CompleteMinigame");
+
                 break;
         }
     }
@@ -73,6 +81,8 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
 
 
         _taskWarningIcon.DOFade(0, 0.2f);
+
+        AudioManager.Instance.PlaySFX("RemovePanel");
 
         seq.Append(
             _frontPanel.transform.DOLocalMove(

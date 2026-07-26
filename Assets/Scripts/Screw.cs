@@ -15,10 +15,9 @@ public class Screw : MonoBehaviour, IHoverInteractable
         if (_rotationCount >= MaxRotations)
             return true;
 
-
-        // AudioManager.Instance.PlaySFX("SFX_1");
-
         _rotationCount++;
+
+        AudioManager.Instance.PlaySFX("RotateScrew");
 
         _screwSpriteRenderer.transform
             .DOLocalRotate(
@@ -30,6 +29,8 @@ public class Screw : MonoBehaviour, IHoverInteractable
         if (_rotationCount >= MaxRotations)
         {
             PlayRemoveScrew();
+            AudioManager.Instance.PlaySFX("RemoveScrew");
+
             return true;
         }
 
