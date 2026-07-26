@@ -6532,7 +6532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1080741530
 Transform:
   m_ObjectHideFlags: 0
@@ -7645,7 +7645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd96a82d8ad95494391b89e97463248c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameloopManager
-  <StartingCountDownValue>k__BackingField: 90
+  <StartingCountDownValue>k__BackingField: 5
   _rocketEntity: {fileID: 6398089941208848020}
   _hud: {fileID: 810316192}
   _countDownTimerController: {fileID: 1653102187}
