@@ -6788,7 +6788,7 @@ MonoBehaviour:
   - Name: bgm
     Clip: {fileID: 8300000, guid: a6c89a63974144d8889e80aa6135aa27, type: 3}
     Volume: 0.5
-    Loop: 0
+    Loop: 1
     PitchProps:
       RandPitch: 0
       Min: 0
@@ -6796,7 +6796,7 @@ MonoBehaviour:
   - Name: title_bgm
     Clip: {fileID: 8300000, guid: b4b83ec624c3944ad91fb274031f548a, type: 3}
     Volume: 0.5
-    Loop: 0
+    Loop: 1
     PitchProps:
       RandPitch: 0
       Min: 0
