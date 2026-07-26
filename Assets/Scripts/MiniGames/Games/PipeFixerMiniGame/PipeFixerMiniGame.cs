@@ -35,9 +35,12 @@ public class PipeFixerMiniGame : MiniGame
                     (PipeFlowDirection)Random.Range(0, 4));
             }
 
-            _goalDirections[row] = Random.Range(0, 2) == 0
-                ? PipeFlowDirection.Left
-                : PipeFlowDirection.Right;
+            //Had to disable random for design reasons. When game is enhanced, we can add this back later
+            // _goalDirections[row] = Random.Range(0, 2) == 0
+            //     ? PipeFlowDirection.Left
+            //     : PipeFlowDirection.Right;
+
+            _goalDirections[row] = PipeFlowDirection.Right;
         }
     }
 
