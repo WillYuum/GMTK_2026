@@ -7534,7 +7534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd96a82d8ad95494391b89e97463248c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameloopManager
-  <StartingCountDownValue>k__BackingField: 10
+  <StartingCountDownValue>k__BackingField: 180
   _countDownTimerController: {fileID: 1653102187}
 --- !u!1 &1909255543
 GameObject:
