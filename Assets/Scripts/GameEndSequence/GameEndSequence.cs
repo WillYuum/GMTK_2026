@@ -12,6 +12,9 @@ public class GameEndSequence : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _finishedCountText;
 
+    [SerializeField] private Image _banner;
+
+    [SerializeField] private GameObject _allTexts;
 
     [SerializeField] private Transform _rocketTransform;
     [SerializeField] private Transform _rocketStartPoint;
@@ -46,6 +49,9 @@ public class GameEndSequence : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
 
+        _banner.color = new Color(_banner.color.r, _banner.color.g, _banner.color.b, 0);
+        sequence.Append(_banner.DOFade(1, 0.65f));
+
         // foreach (GameObject slide in _sliders)
         // {
         //     CanvasGroup cg = slide.GetComponent<CanvasGroup>();
@@ -69,13 +75,19 @@ public class GameEndSequence : MonoBehaviour
             sequence.AppendInterval(_sequences.DurationToNextFrame);
         }
 
-        sequence.AppendCallback(() =>
+
+        _finishedCountText.text = $"{finishedCount}";
+        for (int i = 0; i < _allTexts.transform.childCount; i++)
         {
-            _finishedCountText.text = $"{finishedCount}";
-            _finishedCountText.DOFade(1, _fadeDuration).OnComplete(() =>
-            {
-            });
-        });
+            TextMeshProUGUI text = _allTexts.transform.GetChild(i).GetComponent<TextMeshProUGUI>();
+            text.alpha = 0;
+            sequence.Append(text.DOFade(1, _fadeDuration));
+            sequence.AppendInterval(0.25f);
+        }
+        // sequence.AppendCallback(() =>
+        // {
+        //     _finishedCountText.DOFade(1, _fadeDuration);
+        // });
 
 
 

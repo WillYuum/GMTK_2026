@@ -1589,6 +1589,8 @@ MonoBehaviour:
   _fadeDuration: 1
   _timeBetweenSlides: 3
   _finishedCountText: {fileID: 171475661}
+  _banner: {fileID: 2121385384}
+  _allTexts: {fileID: 1214707936}
   _rocketTransform: {fileID: 1664460299}
   _rocketStartPoint: {fileID: 1749320336}
   _rocketEndPoint: {fileID: 1324096778}
