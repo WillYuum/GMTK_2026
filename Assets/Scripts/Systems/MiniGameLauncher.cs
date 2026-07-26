@@ -3,6 +3,8 @@ using UnityEngine;
 public class MiniGameLauncher : MonoBehaviour
 {
 
+    [SerializeField] private float _delayWhenMiniGameFinished = 0.5f;
+
     private MiniGame _currentMiniGame;
     private MiniGamePanel _currentMiniGamePanel;
     private GameloopManager _gameloopManager;
@@ -63,7 +65,7 @@ public class MiniGameLauncher : MonoBehaviour
             _gameloopManager.NotifyMiniGameFinished();
         }
 
-        await Awaitable.WaitForSecondsAsync(1.0f);
+        await Awaitable.WaitForSecondsAsync(_delayWhenMiniGameFinished);
 
         _currentMiniGame.gameObject.SetActive(false);
         _currentMiniGamePanel.PlaceBackPanel(isSuccess);
