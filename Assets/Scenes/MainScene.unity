@@ -6808,6 +6808,14 @@ MonoBehaviour:
       RandPitch: 0
       Min: 0
       Max: 0
+  - Name: Rocket_Launch
+    Clip: {fileID: 8300000, guid: 4caad14e9f9f0474f8750ab022377a75, type: 3}
+    Volume: 0.5
+    Loop: 0
+    PitchProps:
+      RandPitch: 0
+      Min: 0
+      Max: 0
   _bgmConfigs:
   - Name: bgm
     Clip: {fileID: 8300000, guid: a6c89a63974144d8889e80aa6135aa27, type: 3}
