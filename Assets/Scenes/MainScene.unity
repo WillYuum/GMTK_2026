@@ -6776,6 +6776,14 @@ MonoBehaviour:
       RandPitch: 0
       Min: 0
       Max: 0
+  - Name: Dust
+    Clip: {fileID: 8300000, guid: cc8b80aeffc8a4314aeef7e19c54b5d1, type: 3}
+    Volume: 0.5
+    Loop: 0
+    PitchProps:
+      RandPitch: 0
+      Min: 0
+      Max: 0
   _bgmConfigs:
   - Name: bgm
     Clip: {fileID: 8300000, guid: a6c89a63974144d8889e80aa6135aa27, type: 3}
