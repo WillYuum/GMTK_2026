@@ -56,7 +56,7 @@ public class MiniGameLauncher : MonoBehaviour
 
         if (isSuccess)
         {
-            _gameloopManager.MiniGameFinishedTracker.IncrementFinishedCount();
+            _gameloopManager.NotifyMiniGameFinished();
         }
 
         _currentMiniGame = null;

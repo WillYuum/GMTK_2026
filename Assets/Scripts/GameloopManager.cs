@@ -71,6 +71,17 @@ public class GameloopManager : MonoBehaviour
         }
     }
 
+    public void NotifyMiniGameFinished()
+    {
+        MiniGameFinishedTracker.IncrementFinishedCount();
+        if (MiniGameFinishedTracker.IsAllMiniGamesFinished())
+        {
+            Debug.Log($"[GameloopManager] All MiniGames Finished");
+            enabled = false;
+            ShowGameEnding();
+        }
+    }
+
 
 
 
