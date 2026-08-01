@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class GameloopManager : MonoBehaviour
 {
 
+    public bool IsGameEnding { get; private set; }
+
     [field: SerializeField] public int StartingCountDownValue { get; private set; } = 90;
     public int CurrentCountDownValue { get; private set; } = 90;
 
@@ -41,6 +43,8 @@ public class GameloopManager : MonoBehaviour
 
     public void StartGame()
     {
+        IsGameEnding = false;
+
         enabled = true;
         Debug.Log($"[GameloopManager] StartGame");
         _countDownTimerController.SetTime(StartingCountDownValue);
@@ -69,28 +73,46 @@ public class GameloopManager : MonoBehaviour
 
         if (CurrentCountDownValue <= 0)
         {
-            Debug.Log($"[GameloopManager] Game Over");
-            ShowGameEnding();
-            enabled = false;
+            Debug.Log($"[GameloopManager] Time's up! Game Over");
+            InvokeEndGame();
             return;
         }
     }
 
-    public void NotifyMiniGameFinished()
+    public void RegisterMiniGameCompleted()
     {
         MiniGameFinishedTracker.IncrementFinishedCount();
         if (MiniGameFinishedTracker.IsAllMiniGamesFinished())
         {
             Debug.Log($"[GameloopManager] All MiniGames Finished");
             enabled = false;
-            ShowGameEnding();
         }
+    }
+
+    public void TryStartGameEnding()
+    {
+        if (MiniGameFinishedTracker.IsAllMiniGamesFinished())
+        {
+            Debug.Log($"[GameloopManager] All MiniGames Finished");
+            InvokeEndGame();
+        }
+    }
+
+    private void InvokeEndGame()
+    {
+        if (IsGameEnding)
+        {
+            return;
+        }
+
+        IsGameEnding = true;
+        enabled = false;
+        ShowGameEnding();
     }
 
 
 
-
-    public void ShowGameEnding()
+    private void ShowGameEnding()
     {
         AudioManager.Instance.StopAllBGM();
 

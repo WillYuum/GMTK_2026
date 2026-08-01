@@ -112,7 +112,7 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
     }
 
 
-    public void PlaceBackPanel(bool isSuccess = false)
+    public void PlaceBackPanel(bool isSuccess = false, Action callback = null)
     {
         IsRemoved = false;
 
@@ -163,6 +163,7 @@ public class MiniGamePanel : MonoBehaviour, IHoverInteractable
                     seq.OnComplete(() =>
                     {
                         _taskCompletedCheckmark.DOFade(0, 0.2f).SetDelay(0.5f);
+                        callback?.Invoke();
                     });
                 }
             });

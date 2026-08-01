@@ -64,17 +64,22 @@ public class MiniGameLauncher : MonoBehaviour
 
         if (isSuccess)
         {
-            _gameloopManager.NotifyMiniGameFinished();
+            _gameloopManager.RegisterMiniGameCompleted();
         }
 
         await Awaitable.WaitForSecondsAsync(_delayWhenMiniGameFinished);
 
         _currentMiniGame.gameObject.SetActive(false);
-        _currentMiniGamePanel.PlaceBackPanel(isSuccess);
+        _currentMiniGamePanel.PlaceBackPanel(isSuccess, OnClosePanel);
 
         _interactWithMiniGamesController.enabled = true;
 
         _currentMiniGame = null;
         _currentMiniGamePanel = null;
+    }
+
+    private void OnClosePanel()
+    {
+        _gameloopManager.TryStartGameEnding();
     }
 }

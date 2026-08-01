@@ -46,6 +46,7 @@ public class PointerDisplaySystem : MonoBehaviour
     private void Awake()
     {
         _camera = Camera.main;
+        Cursor.visible = false;
 
 #if UNITY_EDITOR
         ApplySystemCursorVisibility();
