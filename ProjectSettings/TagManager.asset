@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Canvas
+    uniqueID: 3281738205
+    locked: 0
   - name: Cursor
     uniqueID: 2269161033
     locked: 0

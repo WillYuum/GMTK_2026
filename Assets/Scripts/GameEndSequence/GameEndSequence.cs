@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GameEndSequence : MonoBehaviour
 {
-    [SerializeField] private GameObject _sliderHolder;
     [SerializeField] private float _fadeDuration = 1f;
     [SerializeField] private float _timeBetweenSlides = 3f;
 
@@ -27,10 +26,6 @@ public class GameEndSequence : MonoBehaviour
 
 
 
-
-    private GameObject[] _sliders;
-
-
     private GameloopManager _gameloopManager;
 
     private bool _isPlaying;
@@ -46,25 +41,7 @@ public class GameEndSequence : MonoBehaviour
 
         _isPlaying = true;
 
-        // ReferenceSliders();
-
         Sequence sequence = DOTween.Sequence();
-
-        // _banner.color = new Color(_banner.color.r, _banner.color.g, _banner.color.b, 0);
-        // sequence.Append(_banner.DOFade(1, 0.65f));
-
-        // foreach (GameObject slide in _sliders)
-        // {
-        //     CanvasGroup cg = slide.GetComponent<CanvasGroup>();
-        //     if (cg == null)
-        //         cg = slide.AddComponent<CanvasGroup>();
-
-        //     cg.alpha = 0;
-        //     slide.SetActive(true);
-
-        //     sequence.Append(cg.DOFade(1, _fadeDuration));
-        //     sequence.AppendInterval(_timeBetweenSlides);
-        // }
 
         _sequences.Start();
         AudioManager.Instance.PlaySFX("Rocket_Launch");
@@ -91,12 +68,6 @@ public class GameEndSequence : MonoBehaviour
             sequence.Append(text.DOFade(1, _fadeDuration));
             sequence.AppendInterval(0.25f);
         }
-        // sequence.AppendCallback(() =>
-        // {
-        //     _finishedCountText.DOFade(1, _fadeDuration);
-        // });
-
-
 
 
         sequence.OnComplete(() =>
@@ -104,16 +75,6 @@ public class GameEndSequence : MonoBehaviour
             _isPlaying = false;
             EndingFinished();
         });
-    }
-    private void ReferenceSliders()
-    {
-        _sliders = new GameObject[_sliderHolder.transform.childCount];
-
-        for (int i = 0; i < _sliders.Length; i++)
-        {
-            _sliders[i] = _sliderHolder.transform.GetChild(i).gameObject;
-            _sliders[i].SetActive(false);
-        }
     }
 
     private void EndingFinished()
