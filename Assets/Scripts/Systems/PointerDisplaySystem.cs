@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public enum PointerDisplayType
 {
     Default,
@@ -36,34 +40,33 @@ public class PointerDisplaySystem : MonoBehaviour
 
 #if UNITY_EDITOR
     [SerializeField] private bool _debugShowSystemCursor;
-    private bool _lastDebugShowSystemCursor;
+    private bool _lastCursorVisible;
 #endif
 
     private Camera _camera;
     private IHoverInteractable _currentHover;
     private PointerDisplayType _currentType = PointerDisplayType.Default;
 
-    private void Awake()
+    void Awake()
     {
         _camera = Camera.main;
-        Cursor.visible = false;
 
 #if UNITY_EDITOR
-        ApplySystemCursorVisibility();
+        UpdateEditorCursorVisibility();
 #else
         Cursor.visible = false;
 #endif
     }
 
-    private void Start()
+    void Start()
     {
         SetDefaultPointer();
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
 #if UNITY_EDITOR
-        ApplySystemCursorVisibility();
+        UpdateEditorCursorVisibility();
 #endif
 
         UpdateCursorPosition();
@@ -71,15 +74,20 @@ public class PointerDisplaySystem : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    private void ApplySystemCursorVisibility()
+    private void UpdateEditorCursorVisibility()
     {
-        if (_lastDebugShowSystemCursor == _debugShowSystemCursor)
+        bool showCursor =
+            _debugShowSystemCursor ||
+            EditorWindow.mouseOverWindow == null ||
+            EditorWindow.mouseOverWindow.GetType().Name != "GameView";
+
+        if (showCursor == _lastCursorVisible)
         {
             return;
         }
 
-        Cursor.visible = _debugShowSystemCursor;
-        _lastDebugShowSystemCursor = _debugShowSystemCursor;
+        Cursor.visible = showCursor;
+        _lastCursorVisible = showCursor;
     }
 #endif
 
