@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,5 +37,17 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.StopAllBGM();
         AudioManager.Instance.PlayBGM("bgm");
         FindAnyObjectByType<GameloopManager>().StartGame();
+    }
+
+
+
+    public void RestartGame(bool isGameEnding)
+    {
+        SceneManager.LoadScene("MainScene");
+        SceneManager.sceneLoaded += (scene, mode) =>
+        {
+            StartGameLoop();
+        };
+
     }
 }

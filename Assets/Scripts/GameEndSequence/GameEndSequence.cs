@@ -2,6 +2,7 @@ using AudioClasses;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class GameEndSequence : MonoBehaviour
@@ -9,6 +10,8 @@ public class GameEndSequence : MonoBehaviour
     [SerializeField] private float _fadeDuration = 1f;
     [SerializeField] private float _timeBetweenSlides = 3f;
 
+
+    private bool _canContinue;
 
     [SerializeField] private TextMeshProUGUI _finishedCountText;
 
@@ -29,6 +32,21 @@ public class GameEndSequence : MonoBehaviour
     private GameloopManager _gameloopManager;
 
     private bool _isPlaying;
+
+
+    void Update()
+    {
+        if (!_canContinue)
+        {
+            return;
+        }
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            _canContinue = false;
+            HandlePressedRestart();
+        }
+    }
 
     public void PlayEnding()
     {
@@ -72,7 +90,6 @@ public class GameEndSequence : MonoBehaviour
 
         sequence.OnComplete(() =>
         {
-            _isPlaying = false;
             EndingFinished();
         });
     }
@@ -80,6 +97,8 @@ public class GameEndSequence : MonoBehaviour
     private void EndingFinished()
     {
         Debug.Log("Ending Finished");
+        _isPlaying = false;
+        _canContinue = true;
     }
 
 
@@ -89,8 +108,13 @@ public class GameEndSequence : MonoBehaviour
         _rocketTransform.position = _rocketStartPoint.position;
         return _rocketTransform.DOMove(_rocketEndPoint.position, 2f).SetEase(Ease.InOutSine);
     }
-}
 
+
+    private void HandlePressedRestart()
+    {
+        FindAnyObjectByType<GameManager>().RestartGame(true);
+    }
+}
 
 
 [System.Serializable]
