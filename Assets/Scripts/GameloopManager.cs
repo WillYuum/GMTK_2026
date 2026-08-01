@@ -138,6 +138,7 @@ public class GameloopManager : MonoBehaviour
         foreach (var spriteRenderer in spriteRenderers)
         {
             // fade out the sprite renderer
+            spriteRenderer.DOKill(); // Adds an extra layer to make sure not tween anything when tween away the rocket entity
             sequence.Join(FadeOutSprite(spriteRenderer, 1f));
         }
 
