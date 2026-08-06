@@ -727,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7811732519482743001, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 230
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7811732519482743001, guid: 4e3ce6380906cb3439826cbe4b81c1f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1367,7 +1367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2944413113121606933, guid: 0713fd6fb8e586740a9fcb70066b789f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 340
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 2944413113121606933, guid: 0713fd6fb8e586740a9fcb70066b789f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7034,7 +7034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2944413113121606933, guid: 0713fd6fb8e586740a9fcb70066b789f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 497.90198
+      value: 447.90198
       objectReference: {fileID: 0}
     - target: {fileID: 2944413113121606933, guid: 0713fd6fb8e586740a9fcb70066b789f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7864,7 +7864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd96a82d8ad95494391b89e97463248c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameloopManager
-  <StartingCountDownValue>k__BackingField: 90
+  <StartingCountDownValue>k__BackingField: 5
   _rocketEntity: {fileID: 6398089941208848020}
   _hud: {fileID: 810316192}
   _countDownTimerController: {fileID: 1653102187}
