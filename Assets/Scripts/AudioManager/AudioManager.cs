@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviourSingletonPersistent<AudioManager>
     private List<Audio> _bgm;
 
 
+    public bool LoadedAudio => _sfx != null && _bgm != null;
+
     public void Load()
     {
         Debug.Log("Loading AudioManager");
@@ -55,9 +57,6 @@ public class AudioManager : MonoBehaviourSingletonPersistent<AudioManager>
     {
         _bgm.ForEach(audio => audio.Stop());
     }
-
-
-
 
 
     private void Play(string audioName, List<Audio> audios)

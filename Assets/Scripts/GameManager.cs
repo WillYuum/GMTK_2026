@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.Instance.Load();
+        if (!AudioManager.Instance.LoadedAudio)
+        {
+            AudioManager.Instance.Load();
+        }
+
         FindAnyObjectByType<GameloopManager>().PrepareLoop();
 
 #if UNITY_EDITOR
